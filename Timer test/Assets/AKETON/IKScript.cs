@@ -11,6 +11,19 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
 
+[Serializable]
+public struct InitRotation
+{
+    public Quaternion rotation;
+    public Vector3 upvector;
+
+    public InitRotation(Quaternion diff, Vector3 upvector)
+    {
+        this.rotation = diff;
+        this.upvector = upvector;
+    }
+}
+
 [RequireComponent(typeof(FullBodyBipedIK))]
 [RequireComponent(typeof(BoneReference))]
 public class IKScript : MonoBehaviour
@@ -27,7 +40,7 @@ public class IKScript : MonoBehaviour
     public Transform rootBone;
     public bool debug;
 
-    public SerializableDictionary<string, Quaternion> baseRotations;
+    public SerializableDictionary<string, InitRotation> baseRotations;
 
     private BoneReference _boneReference;
     
@@ -141,11 +154,13 @@ public class IKScript : MonoBehaviour
 
                     var ikRig = Helpers.FindIKRig(transform, boneName).rotation;
 
+                    Debug.Log(refTransform.rotation + " " +refTransform.localRotation );
 
 
-                    var diff = refTransform.rotation;
+                    var diff = refTransform.localRotation;
+                    var upvector = refTransform.up;
 
-                    baseRotations.Add(boneName, diff);
+                    baseRotations.Add(boneName, new InitRotation(diff, upvector));
 
 
                 }
@@ -308,31 +323,35 @@ public class IKScript : MonoBehaviour
                     var fix = Vector3.Project(rawhintvector, rawtargetvector);
                         
                     var targetvector = rawtargetvector.normalized;
-                    var hintvector = (rawhintvector - fix).normalized;
+                    var thumbhintvector = (rawhintvector - fix).normalized;
 
-                    var rot = baseRotations[boneName];
+                    var initRot = baseRotations[boneName];
+
+                    var initialUpVector = initRot.upvector;
+                    var initialFootRotation = initRot.rotation;
                     
-                    var upvector = Vector3.Cross(targetvector, hintvector);
+                    var handfacevector = Vector3.Cross(targetvector, thumbhintvector);
                     if (isLeft) // flip
                     {
-                        upvector = -upvector;
+                        handfacevector = -handfacevector;
                     }
+
                     
+                    Quaternion targetRotation = Quaternion.LookRotation(handfacevector, targetvector);
                     
-                    
-                    var diffrot = rot* Quaternion.FromToRotation(upvector, targetvector);
                     
 
 
 
-                    ikRig.rotation = diffrot;
+
+                    ikRig.localRotation = targetRotation ;
 
                     if (debug)
                     {
 
-                        Debug.DrawRay(ikRig.position, targetvector * 0.4f, Color.red);
-                        Debug.DrawRay(ikRig.position, hintvector * 0.4f, Color.green);
-                        Debug.DrawRay(ikRig.position, upvector * 0.4f, Color.black);
+                        Debug.DrawRay(ikRig.position,  thumbhintvector * 0.4f, Color.red); //x
+                        Debug.DrawRay(ikRig.position, targetvector * 0.4f, Color.green); //y
+                        Debug.DrawRay(ikRig.position, handfacevector * 0.4f, Color.black); //z
                         // Debug.DrawRay(ikRig.position, rawhintvector.normalized * 1.0f, Color.blue);
                         // Debug.DrawRay(ikRig.position, rawtargetvector.normalized  * 1.0f, Color.magenta);
                     }
