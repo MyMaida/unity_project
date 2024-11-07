@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "565979681409",
+    "firebase_url": "https://beta-c6afa-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "beta-c6afa",
+    "storage_bucket": "beta-c6afa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565979681409:ios:23099fc06729b5150cf380",
+        "android_client_info": {
+          "package_name": "com.jyyang.timertest"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqar3DgrfaBA-CIyyz8uv8YKfCRbI5S54"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565979681409-dt2q5kt04rcmhscsoq2gmr8ta280le4a.apps.googleusercontent.com"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}

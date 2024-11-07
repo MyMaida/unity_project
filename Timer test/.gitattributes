@@ -1,0 +1,2 @@
+C:/Users/pytho/UnityProject/unitydemo/Timer filter=lfs diff=lfs merge=lfs -text
+test/Assets/Firebase/Plugins/x86_64/* filter=lfs diff=lfs merge=lfs -text
