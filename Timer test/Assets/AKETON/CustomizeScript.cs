@@ -22,7 +22,7 @@ public struct CustomizeBones
 }
 
 [RequireComponent(typeof(IKScript))]
-[RequireComponent(typeof(ScalableBoneReference))]
+[RequireComponent(typeof(BoneReference))]
 public class CustomizeScript : MonoBehaviour
 {
     public CustomizeBones[] customizeBones;
@@ -36,11 +36,11 @@ public class CustomizeScript : MonoBehaviour
     private bool isChanged;
     
     private IKScript ik;
-    private ScalableBoneReference reference;
+    private BoneReference reference;
     private void Reset()
     {
         ik = GetComponent<IKScript>();
-        reference = GetComponent<ScalableBoneReference>();
+        reference = GetComponent<BoneReference>();
         
         customizeBones = new[]
         {
@@ -112,14 +112,14 @@ public class CustomizeScript : MonoBehaviour
     private void Awake()
     {
         ik = GetComponent<IKScript>();
-        reference = GetComponent<ScalableBoneReference>();
+        reference = GetComponent<BoneReference>();
     }
 
     
     [ContextMenu("SetOriginalLength")]
     void SetOriginalLength()
     {
-        reference = GetComponent<ScalableBoneReference>();
+        reference = GetComponent<BoneReference>();
         
         for (var index = 0; index < customizeBones.Length; index++)
         {
@@ -142,7 +142,7 @@ public class CustomizeScript : MonoBehaviour
     [ContextMenu("Calibrate")]
     void Calibrate()
     {
-        reference = GetComponent<ScalableBoneReference>();
+        reference = GetComponent<BoneReference>();
         
         for (var index = 0; index < customizeBones.Length; index++)
         {

@@ -12,7 +12,7 @@ using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(FullBodyBipedIK))]
-[RequireComponent(typeof(ScalableBoneReference))]
+[RequireComponent(typeof(BoneReference))]
 public class IKScript : MonoBehaviour
 {
     public IReceiver receiver;
@@ -20,24 +20,24 @@ public class IKScript : MonoBehaviour
     public bool isStopReceving = false;
     public bool isMirroredReceving = false;
     //public FullBodyBipedIK ik;
-
-    public Transform LeftUpperLeg;
-    public Transform RightUpperLeg;
+    
     [FormerlySerializedAs("factor")] public float divideFactor = 18.0f; // 가져온 위치를 18.0f의 비율로 나누어서 ik 릭에 전달합니다. 나중에 계산 될 수 있을 겁니다.
     // Start is called before the first frame update
 
     public Transform rootBone;
     public bool debug;
-    private ScalableBoneReference scalableBoneReference;
 
     public SerializableDictionary<string, Quaternion> baseRotations;
+
+    private BoneReference _boneReference;
     
     [ContextMenu("AutoInit")]
     private void AutoInit()
     {
         string error = "";
-        scalableBoneReference = GetComponent<ScalableBoneReference>();
+        
         ik = GetComponent<FullBodyBipedIK>();
+        _boneReference = GetComponent<BoneReference>();
         
         if (ik.ReferencesError(ref error) && rootBone != null)
         {
@@ -86,6 +86,7 @@ public class IKScript : MonoBehaviour
 
             ik.solver.rightThighEffector.positionWeight = 1.0f;
             ik.solver.rightLegChain.bendConstraint.weight = 0.8f;
+            
         }
         
         if (transform.Find("IKRig") == null)
@@ -105,44 +106,49 @@ public class IKScript : MonoBehaviour
         
         baseRotations.Clear();
         
-        
-        foreach (var dict in CSVReader.jointCsv)
+        if (_boneReference !=  null)
         {
-            string jointType = (string)dict["JointType"];
-            string ikName = (string)dict["IKName"];
-            string ikProperty = (string)dict["IKProperty"];
 
-            if (jointType.Equals("Bind") || jointType.Equals("Position"))
+            foreach (var dict in CSVReader.jointCsv)
             {
-                Debug.Log(ikProperty);
-                Debug.Log(ikName);
-
-                var targetTransform = Helpers.FindIKRig(transform, ikName).transform;
-                Helpers.SetValue(ik, ikProperty, targetTransform);
-            }
-
-            if (jointType.Equals("Rotation"))
-            {
-                Debug.Log(ikProperty);
-                Debug.Log(ikName);
+                string jointType = (string)dict["JointType"];
+                string ikName = (string)dict["IKName"];
+                string ikProperty = (string)dict["IKProperty"];
                 
-                var boneName = (string)dict["IKName"];
+                
 
-                var refTransform = scalableBoneReference.GetReferenceByName(boneName);
-                if (refTransform == null)
+                if (jointType.Equals("Bind") || jointType.Equals("Position"))
                 {
-                    Debug.LogError("Reference transform is null, maybe forget to init reference?");
+                    Debug.Log(ikProperty);
+                    Debug.Log(ikName);
+
+                    var targetTransform = Helpers.FindIKRig(transform, ikName).transform;
+                    Helpers.SetValue(ik, ikProperty, targetTransform);
                 }
-                
-                var ikRig = Helpers.FindIKRig(transform, boneName).rotation;
+
+                if (jointType.Equals("Rotation"))
+                {
+                    Debug.Log(ikProperty);
+                    Debug.Log(ikName);
+
+                    var boneName = (string)dict["IKName"];
+
+                    var refTransform = _boneReference.GetReferenceByName(boneName);
+                    if (refTransform == null)
+                    {
+                        Debug.LogError("Reference transform is null, maybe forget to init reference?");
+                    }
+
+                    var ikRig = Helpers.FindIKRig(transform, boneName).rotation;
 
 
 
-                var diff = Quaternion.Inverse(ikRig) * refTransform.rotation;
-                
-                baseRotations.Add(boneName,  diff);
+                    var diff = refTransform.rotation;
+
+                    baseRotations.Add(boneName, diff);
 
 
+                }
             }
         }
 
@@ -150,8 +156,8 @@ public class IKScript : MonoBehaviour
     }
     void Start()
     {
-        scalableBoneReference = GetComponent<ScalableBoneReference>();
         ik = GetComponent<FullBodyBipedIK>();
+        _boneReference = GetComponent<BoneReference>();
     }
     // Update is called once per frame
     void Update()
@@ -181,7 +187,7 @@ public class IKScript : MonoBehaviour
             // 머리의 위치 계산 (모든 스피어의 평균 위치)
             Vector3 headPosition = (eye1 + eye2 + nose + ranchor + lanchor) / 5.0f;
             Vector3 localHeadPosition = headPosition;
-            IK.position = localHeadPosition;
+            IK.position = localHeadPosition  + transform.position;
 
             // 머리의 방향 계산 (여기서는 단순히 눈의 중간과 코를 기준으로 계산)
             
@@ -229,7 +235,7 @@ public class IKScript : MonoBehaviour
             
             
 
-            ikRig.position = body;
+            ikRig.position = body + transform.position;
         }
         
         var csv = CSVReader.jointCsv;
@@ -276,7 +282,7 @@ public class IKScript : MonoBehaviour
                     //     ikPosition = Ori + Adj;
                     // }
                     
-                    ikRig.position = ikPosition;
+                    ikRig.position = ikPosition + transform.position;
                     break;
                 }
                 
@@ -303,8 +309,6 @@ public class IKScript : MonoBehaviour
                         
                     var targetvector = rawtargetvector.normalized;
                     var hintvector = (rawhintvector - fix).normalized;
-                    
-                    var FrontRot = Quaternion.identity;
 
                     var rot = baseRotations[boneName];
                     
@@ -313,32 +317,15 @@ public class IKScript : MonoBehaviour
                     {
                         upvector = -upvector;
                     }
-
-                    if (debug)
-                    {
-                        
-                    }
-                    
-                    var diffrot = Quaternion.identity;
-                    
-
-                    if (isHand)
-                    {
-                        diffrot = Quaternion.LookRotation(upvector, targetvector);
-                    }
-                    else
-                    {
-                        diffrot = Quaternion.LookRotation(upvector, targetvector);
-                        diffrot *= rot;
-                        //diffrot = Quaternion.LookRotation(targetvector, upvector);
-                    }
-
-
-                    FrontRot = diffrot;// * rot;
                     
                     
+                    
+                    var diffrot = rot* Quaternion.FromToRotation(upvector, targetvector);
+                    
 
-                    ikRig.rotation = FrontRot;
+
+
+                    ikRig.rotation = diffrot;
 
                     if (debug)
                     {
@@ -394,9 +381,9 @@ public class IKScript : MonoBehaviour
                     
                     if (debug)
                     {
-
-                        Debug.DrawRay(ikPosition, d1 * 2.0f, Color.red);
-                        Debug.DrawRay(ikPosition, d2 * 2.0f, Color.green);
+                        //
+                        // Debug.DrawRay(ikPosition, d1 * 2.0f, Color.red);
+                        // Debug.DrawRay(ikPosition, d2 * 2.0f, Color.green);
                     }
                     
                     break;

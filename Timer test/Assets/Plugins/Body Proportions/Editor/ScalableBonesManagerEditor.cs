@@ -94,11 +94,13 @@ namespace OnlyNew.BodyProportions
                                             }
 
                                         }
+                                        
+                                        Debug.Log(t.root.localScale);
 
                                         //copy root
-                                        var root_copy = AddBrotherObject(t.root, t.root.parent);
+                                        var root_copy = AddBrotherObject(t.root, t.root.parent, t.root.localScale);
                                         t.rootCopy = root_copy;
-                                        CopyHierarchy(t.root, root_copy);
+                                        CopyHierarchy(t.root, root_copy, t.root.localScale);
                                         root_copy.gameObject.SetActive(false);
                                         root_copy.hideFlags = HideFlags.HideInHierarchy;
                                         //important
@@ -252,16 +254,24 @@ namespace OnlyNew.BodyProportions
         }
 
 
-        static Transform AddBrotherObject(Transform me, Transform parent)
+        static Transform AddBrotherObject(Transform me, Transform parent, Vector3 scale)
         {
             //copy hierarchy
             GameObject objectCopy = new GameObject("_" + me.gameObject.name);
             Undo.RegisterCreatedObjectUndo(objectCopy, "created object");
             Undo.SetTransformParent(objectCopy.transform, parent, "change parent");
             Undo.RecordObject(objectCopy.transform, "record transform");
-            objectCopy.transform.position = me.transform.position;
+            var pos = me.transform.position;
+            var inv_scale = new Vector3(1.0f / scale.x, 1.0f / scale.y, 1.0f / scale.z);
+            
+            pos.Scale(scale);
+            objectCopy.transform.position =  pos;
             objectCopy.transform.rotation = me.transform.rotation;
-            objectCopy.transform.localScale = me.transform.localScale;
+            
+            var localScale = me.transform.localScale;
+            localScale.Scale(scale);
+            
+            objectCopy.transform.localScale = localScale;
             return objectCopy.transform;
         }
 
@@ -293,17 +303,17 @@ namespace OnlyNew.BodyProportions
                 AddComponnetWhileHaveChild(child);
             }
         }
-        static void CopyHierarchy(Transform me, Transform copy)
+        static void CopyHierarchy(Transform me, Transform copy, Vector3 scale)
         {
             //copy hierarchy
             for (int i = 0; i < me.childCount; i++) //if I have child .foreach
             {
                 var child = me.GetChild(i);
-                var childCopy = AddBrotherObject(child, copy);
+                var childCopy = AddBrotherObject(child, copy, scale);
 
                 if (child.GetComponent<ProtectChildrenFromScalableBonesManager>() == null)
                 {    //My children do same thing.
-                    CopyHierarchy(child, childCopy);
+                    CopyHierarchy(child, childCopy, scale);
                 }
             }
         }
