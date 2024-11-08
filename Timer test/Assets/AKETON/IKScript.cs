@@ -45,8 +45,14 @@ public class IKScript : MonoBehaviour
     private BoneReference _boneReference;
     
     [ContextMenu("AutoInit")]
-    private void AutoInit()
+    private void AutoInit()                                                                                                                                                                                  
     {
+        /* ik 스크립트 초기화 방법.
+         *  1. ik스크립트를 추가한다
+         *  2. (option) scaleable bone manager & customize script 같이 추가한다. - customize script 을 한 경우 set original length를 실행한다. + scaleable bone manager을 사용하는 경우 bone의 Transform을 초기화하는 스크립트-> 제작 예정
+         *  3. ikScript 의 FBBIK, rootBone, BoneReference의 RootBone 을 채운 후에 IK스크립트의 AutoInit을 누른다
+         *  4. (option) Grip 등을 위해 Hand Poser과 BoneLink를 추가한다.
+         */
         string error = "";
         
         ik = GetComponent<FullBodyBipedIK>();
@@ -355,7 +361,6 @@ public class IKScript : MonoBehaviour
 
                     if (debug)
                     {
-                        Debug.DrawRay(ikRig.position, targetRotation.eulerAngles * 2.0f, Color.white);
                         Debug.DrawRay(ikRig.position,  thumbhintvector * 0.4f, Color.red); //x
                         Debug.DrawRay(ikRig.position, targetvector * 0.4f, Color.green); //y
                         Debug.DrawRay(ikRig.position, handfacevector * 0.4f, Color.black); //z
