@@ -46,6 +46,7 @@ public class IKScript : MonoBehaviour
     [ContextMenu("AutoInit")]
     private void AutoInit()                                                                                                                                                                                  
     {
+        //
         /* ik 스크립트 초기화 방법.
          *  1. scaleable bone manager & ik스크립트를 추가한다. 이때 fbbik reference는 수동으로 채워야 함 (TODO: 자동 설정으로!)
          *  2. (option) customize script 같이 추가한다. - customize script 을 한 경우 set original length를 실행한다. + ResetScript
