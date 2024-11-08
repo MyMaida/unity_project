@@ -101,10 +101,15 @@ public class CustomizeScript : MonoBehaviour
 
         for (int i = 0; i < customizeBones.Length; i++)
         {
+            
             customizeBones[i].bone = (Transform)reference.GetType().GetField(customizeBones[i].name).GetValue(reference);
             //customizeBones[i].endBone = (Transform)reference.GetType().GetField(customizeBones[i].endBoneName).GetValue(reference);
             
+            
+            
             customizeBones[i].ikStartBone = Helpers.FindIKRig(transform, customizeBones[i].name);
+            
+            
             customizeBones[i].ikEndBone = Helpers.FindIKRig(transform, customizeBones[i].endBoneName);
         }
     }
@@ -127,6 +132,7 @@ public class CustomizeScript : MonoBehaviour
 
             var boneLength = Vector3.Distance(b.ikStartBone.position, b.ikEndBone.position);    
             
+            Debug.Log(b.ikStartBone.position + " "  + b.ikEndBone.position + " "  + boneLength);
             Debug.Log("SetOriginalRaito "+boneLength );
             
             customizeBones[index].originalLength = boneLength;
@@ -149,6 +155,8 @@ public class CustomizeScript : MonoBehaviour
             var b = customizeBones[index];
 
             var boneLength = Vector3.Distance(b.ikStartBone.position, b.ikEndBone.position);    
+            
+            Debug.DrawLine(b.ikStartBone.position, b.ikEndBone.position, Color.white);
                          
             scale[index] = boneLength / customizeBones[index].originalLength ;
             Debug.Log($"{b.name} receivedLength : {boneLength} original: {customizeBones[index].originalLength} result {scale[index]}");
@@ -204,6 +212,7 @@ public class CustomizeScript : MonoBehaviour
             var scaleav = (scalev + 3.0f) / 4.0f;
             
             bone.bone.localScale = new Vector3(scaleav, scalev,scaleav);
+            
 
             // for (int j = 0; j < bone.bones.Length; j++)
             // {

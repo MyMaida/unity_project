@@ -34,7 +34,6 @@ public class IKScript : MonoBehaviour
     public bool isMirroredReceving = false;
     //public FullBodyBipedIK ik;
     
-    [FormerlySerializedAs("factor")] public float divideFactor = 18.0f; // 가져온 위치를 18.0f의 비율로 나누어서 ik 릭에 전달합니다. 나중에 계산 될 수 있을 겁니다.
     // Start is called before the first frame update
 
     public Transform rootBone;
@@ -48,8 +47,8 @@ public class IKScript : MonoBehaviour
     private void AutoInit()                                                                                                                                                                                  
     {
         /* ik 스크립트 초기화 방법.
-         *  1. ik스크립트를 추가한다
-         *  2. (option) scaleable bone manager & customize script 같이 추가한다. - customize script 을 한 경우 set original length를 실행한다. + scaleable bone manager을 사용하는 경우 bone의 Transform을 초기화하는 스크립트-> 제작 예정
+         *  1. scaleable bone manager & ik스크립트를 추가한다. 이때 fbbik reference는 수동으로 채워야 함 (TODO: 자동 설정으로!)
+         *  2. (option) customize script 같이 추가한다. - customize script 을 한 경우 set original length를 실행한다. + ResetScript
          *  3. ikScript 의 FBBIK, rootBone, BoneReference의 RootBone 을 채운 후에 IK스크립트의 AutoInit을 누른다
          *  4. (option) Grip 등을 위해 Hand Poser과 BoneLink를 추가한다.
          */
@@ -57,6 +56,12 @@ public class IKScript : MonoBehaviour
         
         ik = GetComponent<FullBodyBipedIK>();
         _boneReference = GetComponent<BoneReference>();
+        
+        if (ik == null)
+        {
+            Debug.LogWarning("IK script is null");
+            return;
+        }
         
         if (ik.ReferencesError(ref error) && rootBone != null)
         {
@@ -67,120 +72,129 @@ public class IKScript : MonoBehaviour
             
             
         }
-        else
-        {
-            Debug.Log("root Bone is null");
-        }
         
         if (ik.ReferencesError(ref error))
         {
             Debug.LogWarning("IK script is not initiated");
             return;
         }
+
         
-        if (ik != null)
-        {
-            ik.solver.bodyEffector.positionWeight = 0.5f;
-            ik.solver.leftHandEffector.positionWeight = 1.0f;
-            ik.solver.leftHandEffector.rotationWeight = 1.0f;
-            ik.solver.leftShoulderEffector.positionWeight = 1.0f;
-            ik.solver.leftArmChain.bendConstraint.weight = 0.8f;
-
-            ik.solver.rightHandEffector.positionWeight = 1.0f;
-            ik.solver.rightHandEffector.rotationWeight = 1.0f;
-
-            ik.solver.rightShoulderEffector.positionWeight = 1.0f;
-
-            ik.solver.rightArmChain.bendConstraint.weight = 0.8f;
-
-            ik.solver.leftFootEffector.positionWeight = 1.0f;
-            ik.solver.leftFootEffector.rotationWeight = 1.0f;
-
-            ik.solver.leftThighEffector.positionWeight = 1.0f;
-
-            ik.solver.leftLegChain.bendConstraint.weight = 0.8f;
-
-            ik.solver.rightFootEffector.positionWeight = 1.0f;
-            ik.solver.rightFootEffector.rotationWeight = 1.0f;
-
-            ik.solver.rightThighEffector.positionWeight = 1.0f;
-            ik.solver.rightLegChain.bendConstraint.weight = 0.8f;
-            
-        }
         
-        if (transform.Find("IKRig") == null)
-        {
-            
-            
-            var obj = new GameObject("IKRig");
-            obj.transform.parent = transform;
-            obj.AddComponent<Rig>();
-        
-            foreach (var dict in CSVReader.jointCsv)
-            {
-                string ikName = (string)dict["IKName"];
-            
-                var ikObject = new GameObject(ikName);
-                ikObject.transform.parent = obj.transform;
-            }
-        }
+        ik.solver.bodyEffector.positionWeight = 0.5f;
+        ik.solver.leftHandEffector.positionWeight = 1.0f;
+        ik.solver.leftHandEffector.rotationWeight = 1.0f;
+        ik.solver.leftShoulderEffector.positionWeight = 1.0f;
+        ik.solver.leftArmChain.bendConstraint.weight = 0.8f;
+
+        ik.solver.rightHandEffector.positionWeight = 1.0f;
+        ik.solver.rightHandEffector.rotationWeight = 1.0f;
+
+        ik.solver.rightShoulderEffector.positionWeight = 1.0f;
+
+        ik.solver.rightArmChain.bendConstraint.weight = 0.8f;
+
+        ik.solver.leftFootEffector.positionWeight = 1.0f;
+        ik.solver.leftFootEffector.rotationWeight = 1.0f;
+
+        ik.solver.leftThighEffector.positionWeight = 1.0f;
+
+        ik.solver.leftLegChain.bendConstraint.weight = 0.8f;
+
+        ik.solver.rightFootEffector.positionWeight = 1.0f;
+        ik.solver.rightFootEffector.rotationWeight = 1.0f;
+
+        ik.solver.rightThighEffector.positionWeight = 1.0f;
+        ik.solver.rightLegChain.bendConstraint.weight = 0.8f;
+
+        _boneReference.root = rootBone;
+        _boneReference.AutoUpdateReferences();
         
         baseRotations.Clear();
+
+        var ikrig = transform.Find("IKRig");
         
-        if (_boneReference !=  null)
+        if (ikrig != null)
         {
-
-            foreach (var dict in CSVReader.jointCsv)
+            DestroyImmediate(ikrig.gameObject);
+        }
+            
+        var obj = new GameObject("IKRig");
+        obj.transform.parent = transform;
+        obj.AddComponent<Rig>();
+    
+        foreach (var dict in CSVReader.jointCsv) //IKRig 생성
+        {
+            string ikName = (string)dict["IKName"];
+            
+            Debug.Log(ikName + "setting");
+        
+            var ikObject = new GameObject(ikName);
+            ikObject.transform.parent = obj.transform;
+            
+            if (ikName.Contains("Body"))
             {
-                string jointType = (string)dict["JointType"];
-                string ikName = (string)dict["IKName"];
-                string ikProperty = (string)dict["IKProperty"];
-                
-                
+                continue;
+            }
+            
+            ikObject.transform.position = _boneReference.GetReferenceByName(ikName).position;
+        }
+        
+        
 
-                if (jointType.Equals("Bind") || jointType.Equals("Position"))
+        foreach (var dict in CSVReader.jointCsv)
+        {
+            string jointType = (string)dict["JointType"];
+            string ikName = (string)dict["IKName"];
+            string ikProperty = (string)dict["IKProperty"];
+
+
+
+            if (jointType.Equals("Bind") || jointType.Equals("Position"))
+            {
+                Debug.Log(ikProperty);
+                Debug.Log(ikName);
+
+                if (!ikProperty.Equals(""))
                 {
-                    Debug.Log(ikProperty);
-                    Debug.Log(ikName);
-
-                    if (!ikProperty.Equals(""))
-                    {
-                        var targetTransform = Helpers.FindIKRig(transform, ikName).transform;
-                        Helpers.SetValue(ik, ikProperty, targetTransform);
-                    }
-
-                    
+                    var targetTransform = Helpers.FindIKRig(transform, ikName).transform;
+                    Helpers.SetValue(ik, ikProperty, targetTransform);
                 }
 
-                if (jointType.Equals("Rotation"))
+
+            }
+
+            if (jointType.Equals("Rotation"))
+            {
+                Debug.Log(ikProperty);
+                Debug.Log(ikName);
+
+                var boneName = (string)dict["IKName"];
+
+                var refTransform = _boneReference.GetReferenceByName(boneName);
+                if (refTransform == null)
                 {
-                    Debug.Log(ikProperty);
-                    Debug.Log(ikName);
-
-                    var boneName = (string)dict["IKName"];
-
-                    var refTransform = _boneReference.GetReferenceByName(boneName);
-                    if (refTransform == null)
-                    {
-                        Debug.LogError("Reference transform is null, maybe forget to init reference?");
-                    }
-
-                    var ikRig = Helpers.FindIKRig(transform, boneName).rotation;
-
-                    Debug.Log(refTransform.rotation + " " +refTransform.localRotation );
-
-
-                    var diff = refTransform.localRotation;
-                    var upvector = refTransform.up;
-
-                    baseRotations.Add(boneName, new InitRotation(diff, upvector));
-
-
+                    Debug.LogError("Reference transform is null, maybe forget to init reference?");
                 }
+
+                var ikRig = Helpers.FindIKRig(transform, boneName).rotation;
+
+                Debug.Log(refTransform.rotation + " " + refTransform.localRotation);
+
+
+                var diff = refTransform.localRotation;
+                var upvector = refTransform.up;
+
+                baseRotations.Add(boneName, new InitRotation(diff, upvector));
+
+
             }
         }
-
         
+        
+        
+        
+
     }
     void Start()
     {

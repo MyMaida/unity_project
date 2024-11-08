@@ -4,11 +4,15 @@ using RootMotion.FinalIK;
 using UnityEngine;
 // ReSharper disable InconsistentNaming
 
+
 public class BoneReference : MonoBehaviour
 {
+    // bone들의 레퍼런스. ikRig의 레퍼런스가 아님.
+    
     public Transform root;
     
     public Transform Head;
+    public Transform Body;
     
     public Transform LeftHand;
     public Transform LeftForeArm;
@@ -27,7 +31,6 @@ public class BoneReference : MonoBehaviour
     public Transform RightUpLeg;
     public Transform RightLeg;
     public Transform RightFoot;
-    
     
     // Start is called before the first frame update
     void Start()
@@ -52,7 +55,7 @@ public class BoneReference : MonoBehaviour
 
     
     [ContextMenu("AutoUpdateReferences")]
-    void AutoUpdateReferences()
+    public void AutoUpdateReferences()
     {
         if (root == null)
         {
@@ -62,14 +65,7 @@ public class BoneReference : MonoBehaviour
         List<string> boneNames = new List<string> { "Head" ,"LeftHand", "LeftForeArm", "LeftArm",
             "LeftShoulder", "RightHand", "RightForeArm" ,"RightArm", "RightShoulder", "LeftUpLeg","LeftLeg", "LeftFoot","RightUpLeg","RightLeg","RightFoot"};
         
-        List<string> fbbikBoneNames = new List<string> { "head" , "leftHand", "leftForearm", "leftUpperArm",
-            "", "rightHand", "rightForearm" ,"rightUpperArm", "", "leftThigh","leftCalf", "leftFoot","rightThigh","rightCalf","rightFoot"};
 
-        CustomizeScript t;
-        bool with_scalable_bone = TryGetComponent<CustomizeScript>(out t);
-        
-        if (with_scalable_bone)
-        {
             foreach (Transform child in root)
             {
                 foreach (var boneName in boneNames)
@@ -84,28 +80,6 @@ public class BoneReference : MonoBehaviour
                     }
                 }
             }
-        }
-        else
-        {
-            var ikscript = GetComponent<FullBodyBipedIK>();
-            for (int i = 0 ; i < boneNames.Count ; i++)
-            {
-
-                if (fbbikBoneNames[i] == "")
-                {
-                    continue;
-                }
-                
-                Debug.Log("find by name"+ fbbikBoneNames[i]);
-                
-                var bone = GetReferenceByName(ikscript.references, fbbikBoneNames[i]);
-                
-                Debug.Log("find bone " + bone);
-                
-                SetReferenceByName(boneNames[i], bone);
-                
-            }
-        }
     }
 
     // Update is called once per frame
