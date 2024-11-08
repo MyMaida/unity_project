@@ -104,6 +104,8 @@ public class IKScript : MonoBehaviour
         
         if (transform.Find("IKRig") == null)
         {
+            
+            
             var obj = new GameObject("IKRig");
             obj.transform.parent = transform;
             obj.AddComponent<Rig>();
@@ -135,8 +137,13 @@ public class IKScript : MonoBehaviour
                     Debug.Log(ikProperty);
                     Debug.Log(ikName);
 
-                    var targetTransform = Helpers.FindIKRig(transform, ikName).transform;
-                    Helpers.SetValue(ik, ikProperty, targetTransform);
+                    if (!ikProperty.Equals(""))
+                    {
+                        var targetTransform = Helpers.FindIKRig(transform, ikName).transform;
+                        Helpers.SetValue(ik, ikProperty, targetTransform);
+                    }
+
+                    
                 }
 
                 if (jointType.Equals("Rotation"))
@@ -348,7 +355,7 @@ public class IKScript : MonoBehaviour
 
                     if (debug)
                     {
-
+                        Debug.DrawRay(ikRig.position, targetRotation.eulerAngles * 2.0f, Color.white);
                         Debug.DrawRay(ikRig.position,  thumbhintvector * 0.4f, Color.red); //x
                         Debug.DrawRay(ikRig.position, targetvector * 0.4f, Color.green); //y
                         Debug.DrawRay(ikRig.position, handfacevector * 0.4f, Color.black); //z
