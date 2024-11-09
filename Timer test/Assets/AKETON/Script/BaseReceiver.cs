@@ -45,6 +45,7 @@ public class BaseReceiver : MonoBehaviour
     public float receivedScale = 18.0f;
     
     private bool isFinished;
+    
     void Awake()
     {
         baseCoord = new Vector3[Helpers.CoordVectorSize];

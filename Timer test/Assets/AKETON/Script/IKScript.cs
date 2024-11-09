@@ -16,11 +16,12 @@ public struct InitRotation
 {
     public Quaternion rotation;
     public Vector3 upvector;
-
+    public Vector3 customRotation;
     public InitRotation(Quaternion diff, Vector3 upvector)
     {
         this.rotation = diff;
         this.upvector = upvector;
+        customRotation = Vector3.zero;
     }
 }
 
@@ -46,7 +47,6 @@ public class IKScript : MonoBehaviour
     [ContextMenu("AutoInit")]
     private void AutoInit()                                                                                                                                                                                  
     {
-        //
         /* ik 스크립트 초기화 방법.
          *  1. scaleable bone manager & ik스크립트를 추가한다. 이때 fbbik reference는 수동으로 채워야 함 (TODO: 자동 설정으로!)
          *  2. (option) customize script 같이 추가한다. - customize script 을 한 경우 set original length를 실행한다. + ResetScript
@@ -372,7 +372,7 @@ public class IKScript : MonoBehaviour
 
 
 
-                    ikRig.localRotation = targetRotation ;
+                    ikRig.localRotation = targetRotation * Quaternion.Euler(initRot.customRotation);
 
                     if (debug)
                     {

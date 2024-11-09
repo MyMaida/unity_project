@@ -42,6 +42,8 @@ public class Receiver : IReceiver
     {
         var BaseCoord = GetBaseCoord();
         
+        
+        
         if (BaseCoord == null)
         {
             Debug.LogError("BaseCoord Is Null");
