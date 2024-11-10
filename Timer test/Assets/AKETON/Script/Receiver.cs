@@ -5,27 +5,50 @@ using System;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using UnityEngine.Serialization;
 
-
+public abstract class IReceiverMiddleWare: MonoBehaviour
+{
+    public abstract Vector3[] Transform(Vector3[] input);
+}
 
 public abstract class IReceiver: MonoBehaviour
 {
-    public BaseReceiver BaseReceiver;
+    [FormerlySerializedAs("BaseReceiver")] public BaseReceiver baseReceiver;
 
+    public IReceiverMiddleWare[] baseReceiverMiddleWare;
+
+    private Vector3[] received = new Vector3[Helpers.CoordVectorSize];
+    
+    protected void OnReceive()
+    {
+        var coord = baseReceiver.GetBaseCoord();
+        
+        foreach (IReceiverMiddleWare middleWare in baseReceiverMiddleWare)
+        {
+            coord = middleWare.Transform(coord);
+        }
+
+        received = (Vector3[])coord.Clone() ;
+    }
+    
     private void Awake()
     {
-        BaseReceiver.OnFinishReceive += OnFinishReceive;
+        baseReceiver.OnEndReceive += OnEndReceive;
+        baseReceiver.OnReceive += OnReceive;
     }
 
     protected Vector3[] GetBaseCoord()
     {
-        return BaseReceiver.baseCoord;
+        return received;
     }
 
-    protected abstract void OnFinishReceive();
+    protected abstract void OnEndReceive();
+
+    
     private void OnDestroy()
     {
-        BaseReceiver.OnFinishReceive -= OnFinishReceive;
+        baseReceiver.OnEndReceive -= OnEndReceive;
     }
 
     public abstract Vector3[] GetCoord();
@@ -33,7 +56,7 @@ public abstract class IReceiver: MonoBehaviour
 
 public class Receiver : IReceiver
 {
-    protected override void OnFinishReceive()
+    protected override void OnEndReceive()
     {
         
     }

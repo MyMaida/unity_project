@@ -72,7 +72,7 @@ public class BoneReference : MonoBehaviour
                 {
                     if (child.name.Contains(boneName))
                     {
-                        Debug.Log("Find boneName : " + boneName);
+                        Debug.Log("AutoUpdateReferences: Find boneName : " + boneName);
 
                         SetReferenceByName(boneName, child);
 

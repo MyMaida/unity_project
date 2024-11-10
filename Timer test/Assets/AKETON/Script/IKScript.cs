@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using RootMotion;
 using RootMotion.FinalIK;
+using UnityEditor;
+using UnityEditor.Animations.Rigging;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
@@ -128,7 +130,7 @@ public class IKScript : MonoBehaviour
         {
             string ikName = (string)dict["IKName"];
             
-            Debug.Log(ikName + "setting");
+            Debug.Log("IKRig Creation Phase: " + ikName + "setting");
         
             var ikObject = new GameObject(ikName);
             ikObject.transform.parent = obj.transform;
@@ -139,6 +141,51 @@ public class IKScript : MonoBehaviour
             }
             
             ikObject.transform.position = _boneReference.GetReferenceByName(ikName).position;
+        }
+
+        var rig = GetComponent<RigBuilder>();
+
+        if (rig != null) // Rig Visaul Update Phase
+        {
+            if (rig.layers.Count >= 1)
+            {
+                rig.layers[0]= new RigLayer(obj.GetComponent<Rig>());
+            }
+            
+            foreach (var layer in rig.layers)
+            {
+                Debug.Log("layer name : " + layer.name);
+                
+                for (int i = 0; i < layer.rig.transform.childCount; i++ )
+                {//릭 시각화 세팅
+                    var rigTransform = layer.rig.transform.GetChild(i);
+    
+                    Mesh LoadShape(string filename)
+                    {
+                        const string EditorFolder = "Packages/com.unity.animation.rigging/Editor/";
+                        const string ShadersFolder = EditorFolder + "Shaders/";
+                        const string ShapesFolder = EditorFolder + "Shapes/";
+                        
+                        return AssetDatabase.LoadAssetAtPath<Mesh>(ShapesFolder + filename);
+                    }
+                    
+                    var style = new RigEffectorData.Style()
+                    {
+                        shape =  LoadShape("LocatorEffector.asset"),
+                        color = new Color(1f, 0f, 0f, 0.5f),
+                        size = 0.10f,
+                        position = Vector3.zero,
+                        rotation = Vector3.zero
+                    };
+                    
+                    rig.AddEffector(rigTransform, style);
+                    Debug.Log("1RigEffector" + layer.rig.transform.GetChild(i).name);
+                    
+                    
+                }
+                
+                
+            }
         }
         
         
@@ -153,8 +200,6 @@ public class IKScript : MonoBehaviour
 
             if (jointType.Equals("Bind") || jointType.Equals("Position"))
             {
-                Debug.Log(ikProperty);
-                Debug.Log(ikName);
 
                 if (!ikProperty.Equals(""))
                 {
@@ -167,8 +212,6 @@ public class IKScript : MonoBehaviour
 
             if (jointType.Equals("Rotation"))
             {
-                Debug.Log(ikProperty);
-                Debug.Log(ikName);
 
                 var boneName = (string)dict["IKName"];
 
@@ -180,7 +223,7 @@ public class IKScript : MonoBehaviour
 
                 var ikRig = Helpers.FindIKRig(transform, boneName).rotation;
 
-                Debug.Log(refTransform.rotation + " " + refTransform.localRotation);
+                Debug.Log("refTransform" +refTransform.rotation + " " + refTransform.localRotation);
 
 
                 var diff = refTransform.localRotation;

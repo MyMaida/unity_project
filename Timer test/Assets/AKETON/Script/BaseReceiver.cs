@@ -27,7 +27,7 @@ public class BaseReceiver : MonoBehaviour
     public Vector3[] baseCoord;
 
     public Action OnReceive;
-    public Action OnFinishReceive;
+    public Action OnEndReceive;
     
     public ReceiverMode mode = ReceiverMode.TransformAndScaled;
     
@@ -58,7 +58,7 @@ public class BaseReceiver : MonoBehaviour
         isFinished = true;
         baseCoord = new Vector3[Helpers.CoordVectorSize];
         
-        OnFinishReceive?.Invoke();
+        OnEndReceive?.Invoke();
     }
     
     
@@ -90,6 +90,11 @@ public class BaseReceiver : MonoBehaviour
             
             
         return Position;
+    }
+
+    public Vector3[] GetBaseCoord()
+    {
+        return baseCoord;
     }
 
     async void Receive()

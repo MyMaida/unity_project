@@ -29,12 +29,12 @@ public class InterpolateReceiver : IReceiver
 
     void Awake()
     {
-        if (BaseReceiver == null)
+        if (baseReceiver == null)
         {
             Debug.LogError("Base receiver is null");
         }
         
-        BaseReceiver.OnReceive += ReceiveCallback;
+        baseReceiver.OnReceive += ReceiveCallback;
         
         
         coord = new Vector3[Helpers.CoordVectorSize];
@@ -43,7 +43,7 @@ public class InterpolateReceiver : IReceiver
         distanceList = new List<double>();
     }
 
-    protected override void OnFinishReceive()
+    protected override void OnEndReceive()
     {
         coord = new Vector3[Helpers.CoordVectorSize];
         queue = new Queue<Vector3[]>();
@@ -53,7 +53,7 @@ public class InterpolateReceiver : IReceiver
 
     void ReceiveCallback()
     {
-        if (BaseReceiver.m_ReceiveMessage.Equals("End"))
+        if (baseReceiver.m_ReceiveMessage.Equals("End"))
         {
             skipFrame = false;
             
