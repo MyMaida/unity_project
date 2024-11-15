@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using OnlyNew.BodyProportions;
 using UnityEngine;
 
+[Serializable]
 public class TransformData
 {
 

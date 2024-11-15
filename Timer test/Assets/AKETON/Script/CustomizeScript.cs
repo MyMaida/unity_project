@@ -21,13 +21,16 @@ public struct CustomizeBones
     public float originalLength;
 }
 
+
+
+
 [RequireComponent(typeof(IKScript))]
 [RequireComponent(typeof(BoneReference))]
 public class CustomizeScript : MonoBehaviour
 {
     public CustomizeBones[] customizeBones;
 
-    
+    public int smoothCount = 3;
     
     public double[] scale;
 
@@ -92,12 +95,7 @@ public class CustomizeScript : MonoBehaviour
             
         };
         
-        scale = new double[customizeBones.Length];
-
-        for (int i = 0; i < customizeBones.Length; i++)
-        {
-            scale[i] = 1.0;
-        }
+        
 
         for (int i = 0; i < customizeBones.Length; i++)
         {
@@ -143,12 +141,19 @@ public class CustomizeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        scale = new double[customizeBones.Length];
+
+        for (int i = 0; i < customizeBones.Length; i++)
+        {
+            scale[i] = 1.0;
+        }
     }
     [ContextMenu("Calibrate")]
     void Calibrate()
     {
-        reference = GetComponent<BoneReference>();
+        reference = GetComponent<BoneReference>(); 
+        
+        
         
         for (var index = 0; index < customizeBones.Length; index++)
         {
@@ -161,6 +166,10 @@ public class CustomizeScript : MonoBehaviour
             scale[index] = boneLength / customizeBones[index].originalLength ;
             Debug.Log($"{b.name} receivedLength : {boneLength} original: {customizeBones[index].originalLength} result {scale[index]}");
         }
+
+        
+        
+        
         //
         // foreach (var bone in CSVReader.jointCsv)
         // {
@@ -206,10 +215,12 @@ public class CustomizeScript : MonoBehaviour
         
         for (int i = 0; i < customizeBones.Length; i++)
         {
+            
+            
             var bone = customizeBones[i];
             
             var scalev = (float)scale[i];
-            var scaleav = (scalev + 3.0f) / 4.0f;
+            var scaleav = 1.0f;
             
             bone.bone.localScale = new Vector3(scaleav, scalev,scaleav);
             

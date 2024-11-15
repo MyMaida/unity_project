@@ -68,9 +68,15 @@ public class ReplayScript : IReceiverMiddleWare
     [ContextMenu("StartRecord")]
     public void StartRecord()
     {
+        if (isRecording)
+        {
+            return;
+        }
+        
         replayList.Clear();
         index = 0;
         isRecording = true;
+        isReplaying = false;
     }
 
     [ContextMenu("EndRecord")]
@@ -86,6 +92,11 @@ public class ReplayScript : IReceiverMiddleWare
         {
             return;
         }
+
+        if (isReplaying)
+        {
+            return;
+        }
         
         isReplaying = true;
         isRecording = false;
@@ -96,6 +107,39 @@ public class ReplayScript : IReceiverMiddleWare
     public void EndReplay()
     {
         isReplaying = false;
+    }
+
+    [ContextMenu("PauseReplay")]
+    public void PauseReplay()
+    {
+        isPaused = true;
+    }
+
+    [ContextMenu("ResumeReplay")]
+    public void ResumeReplay()
+    {
+        isPaused = false;
+    }
+
+    [ContextMenu("Skip5Seconds")]
+    private void Skip5Seconds()
+    {
+        SkipSeconds(5.0f);
+    }
+
+    public void SkipSeconds(float seconds)
+    {
+        index += (int)Math.Round(seconds / baseReplaySpeed);
+
+        if (index >= replayList.Count - 1)
+        {
+            index = replayList.Count - 1;
+        }
+    }
+
+    public void SetPlaySpeed(float speed)
+    {
+        replaySpeed = speed;
     }
 
     private void Update()

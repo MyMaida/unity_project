@@ -7,11 +7,15 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using RootMotion;
 using RootMotion.FinalIK;
-using UnityEditor;
-using UnityEditor.Animations.Rigging;
+
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
+
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.Animations.Rigging;
+#endif
 
 [Serializable]
 public struct InitRotation
@@ -156,6 +160,8 @@ public class IKScript : MonoBehaviour
             {
                 Debug.Log("layer name : " + layer.name);
                 
+                #if UNITY_EDITOR
+                
                 for (int i = 0; i < layer.rig.transform.childCount; i++ )
                 {//릭 시각화 세팅
                     var rigTransform = layer.rig.transform.GetChild(i);
@@ -183,6 +189,8 @@ public class IKScript : MonoBehaviour
                     
                     
                 }
+                
+                #endif
                 
                 
             }

@@ -79,6 +79,14 @@ public class CSVReader
         }
         
     }
+
+    public static List<Dictionary<string, object>> newJointCsv
+    {
+        get
+        {
+            return GetCachedCsvByKey("new_joints");
+        }
+    }
     
     public static List<Dictionary<string, object>> boneCsv => GetCachedCsvByKey("bones");
 }
