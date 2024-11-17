@@ -1,8 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
 using Random = UnityEngine.Random;
+
+
+[Serializable]
+public class CachedData
+{
+    public float length;
+}
 
 [RequireComponent(typeof(BoneReference))]
 public class BoneMoveScript : MonoBehaviour
@@ -10,7 +18,7 @@ public class BoneMoveScript : MonoBehaviour
     public BoneReference _boneReference;
     public IReceiver _receiver;
 
-    public SerializableDictionary<string, TransformData> cachedData;
+    public SerializableDictionary<string, CachedData> cachedData;
     
     // Start is called before the first frame update
     void Start()
@@ -24,11 +32,25 @@ public class BoneMoveScript : MonoBehaviour
         _boneReference = GetComponent<BoneReference>();
         _receiver = FindObjectOfType<IReceiver>();
         
-        cachedData = new SerializableDictionary<string, TransformData>();
+        cachedData = new SerializableDictionary<string, CachedData>();
         
         foreach (Transform obj in _boneReference.root) //IKRig 생성
         {
-            cachedData.Add(obj.gameObject.name, new TransformData(obj.transform));
+            
+        }
+
+        foreach (var dict in CSVReader.newJointCsv) //IKRig 생성
+        {
+            string ikName = (string)dict["IKName"];
+            
+            int jointID = (int)dict["JointID"];
+            int targetID = (int)dict["TargetID"];
+            
+            var c = new CachedData();
+
+            c.length = 1.0f; //TODO
+            
+            cachedData.Add(ikName, c);
         }
     }
 
@@ -62,7 +84,7 @@ public class BoneMoveScript : MonoBehaviour
 
                 var res = a * inverseFactor + b * factor  + offset;
                 
-                Debug.Log(factor + " " + inverseFactor);
+                //Debug.Log(factor + " " + inverseFactor);
                 
                 
 
@@ -73,9 +95,9 @@ public class BoneMoveScript : MonoBehaviour
             {
                 var spine = _boneReference.SpineChain[index];
                 
-                Debug.Log(index + spine.name);
+                //Debug.Log(index + spine.name);
 
-                Debug.DrawLine(resultList[index], resultList[index + 1], new Color(index * 100, 0, 0));
+                //Debug.DrawLine(resultList[index], resultList[index + 1], new Color(index * 100, 0, 0));
                 
                 spine.position = resultList[index];
                 spine.rotation = Quaternion.FromToRotation(Vector3.up, resultList[index + 1] - resultList[index]);
@@ -116,9 +138,15 @@ public class BoneMoveScript : MonoBehaviour
 
                     var firstBonePos = coord[jointID];
                     var lastBonePos = coord[targetID];
+
+                    Debug.DrawLine(firstBonePos, lastBonePos, Color.red);
                     
-                    bone.rotation = Quaternion.FromToRotation(Vector3.up, lastBonePos - firstBonePos);
+                    var front = Vector3.Cross(lastBonePos - firstBonePos, Vector3.right);
+                    Debug.DrawRay(firstBonePos, front.normalized, Color.green);
                     
+                    var x = Quaternion.LookRotation(front, lastBonePos - firstBonePos);
+          
+                    bone.rotation = x;
                     
                     bone.localScale = new Vector3(1, 1, 1);
                     break;

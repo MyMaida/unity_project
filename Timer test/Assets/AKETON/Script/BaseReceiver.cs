@@ -87,7 +87,8 @@ public class BaseReceiver : MonoBehaviour
         Vector3 vector3 = Quaternion.AngleAxis(angle, rotationAxis) * (position - PointB);
         Position = PointB + vector3;
         Position = Quaternion.AngleAxis(angle * ((float)Math.PI / 180f), rotationAxis) * Position;
-            
+
+        Position.z *= -1;
             
         return Position;
     }
