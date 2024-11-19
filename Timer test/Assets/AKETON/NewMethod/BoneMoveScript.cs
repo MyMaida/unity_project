@@ -29,6 +29,8 @@ public class BoneMoveScript : MonoBehaviour
 
     private void Reset()
     {
+        CSVReader.ResetCachedCsv();
+        
         _boneReference = GetComponent<BoneReference>();
         _receiver = FindObjectOfType<IReceiver>();
         
@@ -46,9 +48,22 @@ public class BoneMoveScript : MonoBehaviour
             int jointID = (int)dict["JointID"];
             int targetID = (int)dict["TargetID"];
             
+            string targetName = (string)dict["TargetName"];
+            
             var c = new CachedData();
 
-            c.length = 1.0f; //TODO
+            if (targetName.Equals(""))
+            {
+                c.length = -1.0f; //TODO
+            }
+            else
+            {
+                var a = _boneReference.GetReferenceByName(ikName);
+                var b = _boneReference.GetReferenceByName(targetName);
+                c.length = Vector3.Distance(a.position, b.position);
+            }
+            
+            
             
             cachedData.Add(ikName, c);
         }
@@ -148,7 +163,29 @@ public class BoneMoveScript : MonoBehaviour
           
                     bone.rotation = x;
                     
-                    bone.localScale = new Vector3(1, 1, 1);
+                    var currentDistance = Vector3.Distance(firstBonePos, lastBonePos);
+
+                    if (cachedData.ContainsKey(ikName) && cachedData[ikName].length > 0.0f)
+                    {
+                        var scaleFactor = currentDistance / cachedData[ikName].length;
+                        
+                        if (currentDistance != 0.0)
+                        {
+                            bone.localScale = new Vector3(1, scaleFactor, 1);
+                        }
+                    
+                        Debug.Log(cachedData[ikName].length + " " + currentDistance);
+                    }
+                    else
+                    {
+                        Debug.Log(ikName + "not in cachedData");
+                    }
+                    
+                    
+
+                   
+                    
+                    
                     break;
                 case "Rotation":
                     break;

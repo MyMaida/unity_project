@@ -52,6 +52,19 @@ public class CSVReader
     
     public static Dictionary<string, List<Dictionary<string, object>>> cachedCsv = new();
 
+    public static void ResetCachedCsv()
+    {
+        if (!ResetOnce)
+        {
+            cachedCsv.Clear();
+            ResetOnce = true;
+        }
+        
+        
+    }
+    
+    public static bool ResetOnce = false;
+
     private static List<Dictionary<string, object>> GetCachedCsvByKey(string key)
     {
         if (!cachedCsv.ContainsKey(key))
