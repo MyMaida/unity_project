@@ -162,8 +162,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 4
-  totalIndex: 4
+  index: 1
+  totalIndex: 1
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
@@ -414,9 +414,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 3
-  totalIndex: 9
-  parentIndex: 3
+  index: 0
+  totalIndex: 6
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -1119,9 +1119,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 5
-  totalIndex: 11
-  parentIndex: 5
+  index: 2
+  totalIndex: 8
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -1183,9 +1183,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 5
-  totalIndex: 43
-  parentIndex: 9
+  index: 2
+  totalIndex: 40
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -1285,8 +1285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 1679428347}
   parent: {fileID: 1679428348}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -1.7763568e-17, y: 0.099999994, z: 4.8907472e-11}
@@ -1294,9 +1294,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 5
-  totalIndex: 33
-  parentIndex: 5
+  index: 0
+  totalIndex: 28
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -1374,9 +1374,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 4
-  totalIndex: 16
-  parentIndex: 4
+  index: 1
+  totalIndex: 13
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -2334,9 +2334,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 9
-  totalIndex: 27
-  parentIndex: 5
+  index: 4
+  totalIndex: 22
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -2586,9 +2586,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 4
-  totalIndex: 10
-  parentIndex: 4
+  index: 1
+  totalIndex: 7
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -2635,9 +2635,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 7
-  totalIndex: 35
-  parentIndex: 7
+  index: 2
+  totalIndex: 30
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -3047,9 +3047,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 4
-  totalIndex: 42
-  parentIndex: 8
+  index: 1
+  totalIndex: 39
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -3142,8 +3142,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 5
-  totalIndex: 5
+  index: 2
+  totalIndex: 2
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
@@ -3206,9 +3206,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 5
-  totalIndex: 17
-  parentIndex: 5
+  index: 2
+  totalIndex: 14
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -3388,9 +3388,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 3
-  totalIndex: 47
-  parentIndex: 5
+  index: 1
+  totalIndex: 45
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -3418,10 +3418,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1161570679}
   - component: {fileID: 1161570678}
-  - component: {fileID: 1161570676}
-  - component: {fileID: 1161570682}
   - component: {fileID: 1161570681}
-  - component: {fileID: 1161570680}
+  - component: {fileID: 1161570683}
+  - component: {fileID: 1161570685}
+  - component: {fileID: 1161570684}
+  - component: {fileID: 1161570686}
   m_Layer: 0
   m_Name: Y Bot
   m_TagString: Untagged
@@ -3429,40 +3430,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1161570676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161570672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed75ecb16a4f8b4c88c7960ffd13904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 1619648637}
-  SpineChain:
-  - {fileID: 1120031170}
-  - {fileID: 405551054}
-  - {fileID: 1126038558}
-  Head: {fileID: 1086909567}
-  Body: {fileID: 0}
-  LeftHand: {fileID: 1489772273}
-  LeftForeArm: {fileID: 1608559248}
-  LeftArm: {fileID: 926784249}
-  LeftShoulder: {fileID: 2051087114}
-  RightHand: {fileID: 1158302251}
-  RightForeArm: {fileID: 411169831}
-  RightArm: {fileID: 1634352533}
-  RightShoulder: {fileID: 829826606}
-  LeftUpLeg: {fileID: 1184387574}
-  LeftLeg: {fileID: 58378640}
-  LeftFoot: {fileID: 1998410996}
-  RightUpLeg: {fileID: 23837648}
-  RightLeg: {fileID: 896168795}
-  RightFoot: {fileID: 463194016}
-  dontBind: 1
 --- !u!114 &1161570678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,494 +3467,6 @@ Transform:
   - {fileID: 1671941661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1161570680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161570672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RigLayers:
-  - m_Rig: {fileID: 0}
-    m_Active: 1
-  m_Effectors:
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 0}
-      color: {r: 1, g: 0, b: 0, a: 1}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
-  - m_Transform: {fileID: 0}
-    m_Style:
-      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0}
-    m_Visible: 1
 --- !u!95 &1161570681
 Animator:
   serializedVersion: 5
@@ -4009,7 +3488,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1161570682
+--- !u!114 &1161570683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161570672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5edc62cea012ba54b98c6ca073116267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visible: 1
+  boneType: 1
+  surfaceColor: {r: 0.9716981, g: 0.2008339, b: 0.1069478, a: 0.5450981}
+  wireColor: {r: 0, g: 0.5199656, b: 0.856, a: 1}
+  scalableBones:
+  - {fileID: 1184387573}
+  - {fileID: 23837647}
+  - {fileID: 1120031169}
+  - {fileID: 58378639}
+  - {fileID: 1998410995}
+  - {fileID: 1679428347}
+  - {fileID: 452017329}
+  - {fileID: 896168796}
+  - {fileID: 463194015}
+  - {fileID: 1327982238}
+  - {fileID: 1845977224}
+  - {fileID: 405551053}
+  - {fileID: 1126038557}
+  - {fileID: 2051087113}
+  - {fileID: 1333806639}
+  - {fileID: 829826605}
+  - {fileID: 926784248}
+  - {fileID: 1608559247}
+  - {fileID: 1489772271}
+  - {fileID: 1174787596}
+  - {fileID: 1086909566}
+  - {fileID: 1634352532}
+  - {fileID: 411169830}
+  - {fileID: 1158302252}
+--- !u!114 &1161570684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4021,35 +3541,161 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eded5206ede5bd41bccc865dd4399e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneReference: {fileID: 1161570676}
+  _boneReference: {fileID: 1161570685}
+  _boneMapping: {fileID: 1161570686}
   _receiver: {fileID: 758941258}
   cachedData:
-    keys:
-    - LeftHand
-    - LeftForeArm
-    - RightHand
-    - RightForeArm
-    - LeftFoot
-    - LeftLeg
-    - RightFoot
-    - RightLeg
-    - LeftArm
-    - RightArm
-    - LeftUpLeg
-    - RightUpLeg
-    values:
-    - length: -1
-    - length: 0.27615088
-    - length: -1
-    - length: 0.27614093
-    - length: -1
-    - length: 0.420982
-    - length: -1
-    - length: 0.42099038
-    - length: 0.27405167
-    - length: 0.2740439
-    - length: 0.40600345
-    - length: 0.40599433
+    keys: []
+    values: []
+--- !u!114 &1161570685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161570672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e01717c80714da45b34c575efcabe4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootBone: {fileID: 1619648637}
+  bones:
+  - {fileID: 1184387574}
+  - {fileID: 23837648}
+  - {fileID: 1120031170}
+  - {fileID: 58378640}
+  - {fileID: 1998410996}
+  - {fileID: 1679428348}
+  - {fileID: 896168795}
+  - {fileID: 463194016}
+  - {fileID: 1327982239}
+  - {fileID: 405551054}
+  - {fileID: 1126038558}
+  - {fileID: 2051087114}
+  - {fileID: 1333806640}
+  - {fileID: 829826606}
+  - {fileID: 926784249}
+  - {fileID: 1608559248}
+  - {fileID: 1489772273}
+  - {fileID: 1174787597}
+  - {fileID: 1634352533}
+  - {fileID: 411169831}
+  - {fileID: 1158302251}
+  - {fileID: 1619648637}
+  dontBind: 1
+--- !u!114 &1161570686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161570672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc97277a6052364484186839c51acb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bones:
+  - Name: LeftHand
+    StartId: 4
+    EndId: 125
+  - Name: LeftForeArm
+    StartId: 3
+    EndId: 4
+  - Name: RightHand
+    StartId: 7
+    EndId: 103
+  - Name: RightForeArm
+    StartId: 6
+    EndId: 7
+  - Name: LeftFoot
+    StartId: 10
+    EndId: 21
+  - Name: LeftLeg
+    StartId: 9
+    EndId: 10
+  - Name: RightFoot
+    StartId: 13
+    EndId: 19
+  - Name: RightLeg
+    StartId: 12
+    EndId: 13
+  - Name: LeftArm
+    StartId: 2
+    EndId: 3
+  - Name: RightArm
+    StartId: 5
+    EndId: 6
+  - Name: LeftUpLeg
+    StartId: 8
+    EndId: 9
+  - Name: RightUpLeg
+    StartId: 11
+    EndId: 12
+  - Name: Head
+    StartId: -1
+    EndId: 54
+  - Name: Neck
+    StartId: -2
+    EndId: -1
+  - Name: LeftShoulder
+    StartId: -3
+    EndId: 5
+  - Name: RightShoulder
+    StartId: -4
+    EndId: 2
+  - Name: Hips
+    StartId: -5
+    EndId: -6
+  - Name: Spine
+    StartId: -6
+    EndId: -7
+  - Name: Spine1
+    StartId: -7
+    EndId: -8
+  - Name: Spine2
+    StartId: -8
+    EndId: -2
+  VirtualPoints:
+  - Name: Head
+    ID: 20000000
+    Factor:
+    - 1
+  - Name: Neck
+    ID: 01000000
+    Factor:
+    - 1
+  - Name: LeftShoulder
+    ID: 0100000005000000
+    Factor:
+    - 0.5
+    - 0.5
+  - Name: RightShoulder
+    ID: 0100000002000000
+    Factor:
+    - 0.5
+    - 0.5
+  - Name: Hips
+    ID: 080000000b000000
+    Factor:
+    - 0.5
+    - 0.5
+  - Name: Spine
+    ID: 01000000fbffffff
+    Factor:
+    - 0.2
+    - 0.8
+  - Name: Spine1
+    ID: 01000000fbffffff
+    Factor:
+    - 0.5
+    - 0.5
+  - Name: Spine2
+    ID: 01000000fbffffff
+    Factor:
+    - 0.8
+    - 0.2
 --- !u!1 &1174787595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,9 +3736,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 8
-  totalIndex: 36
-  parentIndex: 8
+  index: 3
+  totalIndex: 31
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4154,8 +3800,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 3
-  totalIndex: 3
+  index: 0
+  totalIndex: 0
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
@@ -4272,8 +3918,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 463194015}
   parent: {fileID: 463194016}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -2.3694832e-17, y: 0.15721558, z: 3.4555692e-17}
@@ -4281,9 +3927,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 6
-  totalIndex: 24
-  parentIndex: 4
+  index: 1
+  totalIndex: 19
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4336,8 +3982,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 1126038557}
   parent: {fileID: 1126038558}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0.00000025481228, y: 0.15027761, z: 0.0087790685}
@@ -4345,9 +3991,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 8
-  totalIndex: 26
-  parentIndex: 5
+  index: 3
+  totalIndex: 21
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4362,7 +4008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333806638}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000003275961, y: -0.0000016512761, z: 0.00000025049667, w: 1}
+  m_LocalRotation: {x: -0.00000032689758, y: -0.0000016512761, z: 0.00000025049667, w: 1}
   m_LocalPosition: {x: -0.00000833935, y: 0.49961585, z: -0.03483234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4473,9 +4119,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 2
-  totalIndex: 46
-  parentIndex: 3
+  index: 0
+  totalIndex: 44
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -4712,9 +4358,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 3
-  totalIndex: 41
-  parentIndex: 7
+  index: 0
+  totalIndex: 38
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4831,9 +4477,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 9
-  totalIndex: 37
-  parentIndex: 9
+  index: 4
+  totalIndex: 32
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4983,8 +4629,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 1998410995}
   parent: {fileID: 1998410996}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -2.4546743e-17, y: 0.1572156, z: -1.552881e-16}
@@ -4992,9 +4638,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 5
-  totalIndex: 23
-  parentIndex: 3
+  index: 0
+  totalIndex: 18
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -5221,8 +4867,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 1327982238}
   parent: {fileID: 1327982239}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -3.1880578e-11, y: 0.099999994, z: 5.6875338e-11}
@@ -5230,9 +4876,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 6
-  totalIndex: 34
-  parentIndex: 6
+  index: 1
+  totalIndex: 29
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -5438,9 +5084,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 3
-  totalIndex: 15
-  parentIndex: 3
+  index: 0
+  totalIndex: 12
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -5646,9 +5292,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 7
-  totalIndex: 25
-  parentIndex: 5
+  index: 2
+  totalIndex: 20
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -6102,8 +5748,6 @@ GameObject:
   - component: {fileID: 543450651693372793}
   - component: {fileID: 5866666019872739075}
   - component: {fileID: 2040410773}
-  - component: {fileID: 5866666019872739077}
-  - component: {fileID: 5866666019872739076}
   m_Layer: 0
   m_Name: anatomy_merged_rigged
   m_TagString: Untagged
@@ -6611,9 +6255,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 1
-  totalIndex: 45
-  parentIndex: 2
+  index: 3
+  totalIndex: 47
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -6659,9 +6303,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 2
-  totalIndex: 20
-  parentIndex: 2
+  index: 7
+  totalIndex: 25
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -6804,8 +6448,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 0
-  totalIndex: 0
+  index: 3
+  totalIndex: 3
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
@@ -6965,9 +6609,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 1
-  totalIndex: 19
-  parentIndex: 1
+  index: 6
+  totalIndex: 24
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7377,7 +7021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4890665111002177498}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0041329637, y: -0.01827303, z: 0.99982387, w: 0.001084524}
+  m_LocalRotation: {x: -0.0041329637, y: -0.018273074, z: 0.99982387, w: 0.0010845268}
   m_LocalPosition: {x: 0.10438116, y: -0.556635, z: -0.01382405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7407,9 +7051,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 1
-  totalIndex: 7
-  parentIndex: 1
+  index: 4
+  totalIndex: 10
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7473,9 +7117,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 2
-  totalIndex: 14
-  parentIndex: 2
+  index: 5
+  totalIndex: 17
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7522,8 +7166,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 2
-  totalIndex: 2
+  index: 5
+  totalIndex: 5
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
@@ -7583,81 +7227,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5866666019872739076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147973033923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eded5206ede5bd41bccc865dd4399e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _boneReference: {fileID: 5866666019872739077}
-  _receiver: {fileID: 758941258}
-  cachedData:
-    keys:
-    - LeftHand
-    - LeftForeArm
-    - RightHand
-    - RightForeArm
-    - LeftFoot
-    - LeftLeg
-    - RightFoot
-    - RightLeg
-    - LeftArm
-    - RightArm
-    - LeftUpLeg
-    - RightUpLeg
-    values:
-    - length: 1
-    - length: 0.2903129
-    - length: 1
-    - length: 0.290483
-    - length: 1
-    - length: 0.42731225
-    - length: 1
-    - length: 0.42725775
-    - length: 0.26552582
-    - length: 0.2655599
-    - length: 0.4960021
-    - length: 0.49598202
---- !u!114 &5866666019872739077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147973033923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed75ecb16a4f8b4c88c7960ffd13904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 5465940246378919405}
-  SpineChain:
-  - {fileID: 5742672706921776766}
-  - {fileID: 1202371031151071894}
-  - {fileID: 366175169715266301}
-  Head: {fileID: 8700783697734746900}
-  Body: {fileID: 0}
-  LeftHand: {fileID: 6502182840048592721}
-  LeftForeArm: {fileID: 7410462539260890219}
-  LeftArm: {fileID: 5790970486279856554}
-  LeftShoulder: {fileID: 2420202489982202470}
-  RightHand: {fileID: 1852576806137613658}
-  RightForeArm: {fileID: 2563496967871022906}
-  RightArm: {fileID: 6000407480451984791}
-  RightShoulder: {fileID: 7078722786508475151}
-  LeftUpLeg: {fileID: 2559285842096557201}
-  LeftLeg: {fileID: 7151331952335688783}
-  LeftFoot: {fileID: 2348787448680574115}
-  RightUpLeg: {fileID: 8169382870134981330}
-  RightLeg: {fileID: 5477181765954583624}
-  RightFoot: {fileID: 608321761317786862}
-  dontBind: 1
 --- !u!4 &5901452233759148026
 Transform:
   m_ObjectHideFlags: 0
@@ -7711,9 +7280,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 4
-  totalIndex: 32
-  parentIndex: 4
+  index: 9
+  totalIndex: 37
+  parentIndex: 9
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7959,9 +7528,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 0
-  totalIndex: 18
-  parentIndex: 0
+  index: 5
+  totalIndex: 23
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8023,9 +7592,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 0
-  totalIndex: 44
-  parentIndex: 0
+  index: 2
+  totalIndex: 46
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -8085,9 +7654,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 3
-  totalIndex: 21
-  parentIndex: 2
+  index: 8
+  totalIndex: 26
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8180,9 +7749,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 4
-  totalIndex: 22
-  parentIndex: 2
+  index: 9
+  totalIndex: 27
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8229,9 +7798,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 0
-  totalIndex: 12
-  parentIndex: 0
+  index: 3
+  totalIndex: 15
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8276,9 +7845,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 0
-  totalIndex: 6
-  parentIndex: 0
+  index: 3
+  totalIndex: 9
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8355,9 +7924,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 0
-  totalIndex: 38
-  parentIndex: 2
+  index: 3
+  totalIndex: 41
+  parentIndex: 7
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8404,9 +7973,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 3
-  totalIndex: 31
-  parentIndex: 3
+  index: 8
+  totalIndex: 36
+  parentIndex: 8
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8453,9 +8022,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 0
-  totalIndex: 28
-  parentIndex: 0
+  index: 5
+  totalIndex: 33
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -8642,9 +8211,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 1
-  totalIndex: 29
-  parentIndex: 1
+  index: 6
+  totalIndex: 34
+  parentIndex: 6
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -8704,8 +8273,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 1
-  totalIndex: 1
+  index: 4
+  totalIndex: 4
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
@@ -8816,9 +8385,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 1
-  totalIndex: 13
-  parentIndex: 1
+  index: 4
+  totalIndex: 16
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8879,9 +8448,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 1
-  totalIndex: 39
-  parentIndex: 3
+  index: 4
+  totalIndex: 42
+  parentIndex: 8
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -8927,9 +8496,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 2
-  totalIndex: 30
-  parentIndex: 2
+  index: 7
+  totalIndex: 35
+  parentIndex: 7
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8976,9 +8545,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 2
-  totalIndex: 40
-  parentIndex: 4
+  index: 5
+  totalIndex: 43
+  parentIndex: 9
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -9041,9 +8610,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 2
-  totalIndex: 8
-  parentIndex: 2
+  index: 5
+  totalIndex: 11
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:

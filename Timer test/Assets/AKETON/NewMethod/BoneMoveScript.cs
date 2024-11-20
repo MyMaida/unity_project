@@ -12,10 +12,12 @@ public class CachedData
     public float length;
 }
 
-[RequireComponent(typeof(BoneReference))]
+[RequireComponent(typeof(ExBoneReference))]
+[RequireComponent(typeof(BoneMapping))]
 public class BoneMoveScript : MonoBehaviour
 {
-    public BoneReference _boneReference;
+    public ExBoneReference _boneReference;
+    public BoneMapping _boneMapping;
     public IReceiver _receiver;
 
     public SerializableDictionary<string, CachedData> cachedData;
@@ -23,7 +25,8 @@ public class BoneMoveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _boneReference = GetComponent<BoneReference>();
+        _boneReference = GetComponent<ExBoneReference>();
+        _boneMapping = GetComponent<BoneMapping>();
         _receiver = FindObjectOfType<IReceiver>();
     }
 
@@ -31,41 +34,28 @@ public class BoneMoveScript : MonoBehaviour
     {
         CSVReader.ResetCachedCsv();
         
-        _boneReference = GetComponent<BoneReference>();
+        _boneReference = GetComponent<ExBoneReference>();
+        _boneMapping = GetComponent<BoneMapping>();
         _receiver = FindObjectOfType<IReceiver>();
         
         cachedData = new SerializableDictionary<string, CachedData>();
+
+        var bones = _boneMapping.Bones;
         
-        foreach (Transform obj in _boneReference.root) //IKRig 생성
+        
+        
+        foreach (var bone in bones) //IKRig 생성
         {
-            
-        }
-
-        foreach (var dict in CSVReader.newJointCsv) //IKRig 생성
-        {
-            string ikName = (string)dict["IKName"];
-            
-            int jointID = (int)dict["JointID"];
-            int targetID = (int)dict["TargetID"];
-            
-            string targetName = (string)dict["TargetName"];
-            
             var c = new CachedData();
-
-            if (targetName.Equals(""))
-            {
-                c.length = -1.0f; //TODO
-            }
-            else
-            {
-                var a = _boneReference.GetReferenceByName(ikName);
-                var b = _boneReference.GetReferenceByName(targetName);
-                c.length = Vector3.Distance(a.position, b.position);
-            }
+            
+            var a = _boneReference.GetReferenceByName(bone.Name);
+           
             
             
+            var b = _boneReference.GetReferenceByName(_boneMapping.GetBoneNameById(bone.EndId));
+            c.length = Vector3.Distance(a.position, b.position);
             
-            cachedData.Add(ikName, c);
+            cachedData.Add(bone.Name, c);
         }
     }
 
@@ -76,119 +66,51 @@ public class BoneMoveScript : MonoBehaviour
         
         var coord = _receiver.GetCoord();
 
-        var resultList = new List<Vector3>();
         
-        if (_boneReference.SpineChain.Count != 0)
+        _boneMapping.CalculateVirtualPoints(coord);
+        
+
+
+        foreach (var bone in _boneMapping.Bones) //IKRig 생성
         {
-            for (var index = 0; index < _boneReference.SpineChain.Count + 1; index++)
+                
+            var t = _boneReference.GetReferenceByName(bone.Name);
+
+            if (t == null)
             {
-
-                var factor = (index) / (float)_boneReference.SpineChain.Count; // 0.0  ~ 1.0
-                factor /= 2.0f;
-                factor += 0.3f; // 0.3~ 0.7f
-                var inverseFactor = 1.0f - factor;
-                
-                
-                var a = (coord[8] + coord[11]) / 2.0f;
-                var b = (coord[2] + coord[5]) / 2.0f;
-                
-                
-                
-
-                
-
-                var res = a * inverseFactor + b * factor  + offset;
-                
-                //Debug.Log(factor + " " + inverseFactor);
-                
-                
-
-                resultList.Add(res);
+                continue;
             }
+            
+            t.position = _boneMapping.GetPositionById(coord, bone.StartId) + offset;
 
-            for (var index = 0; index < _boneReference.SpineChain.Count; index++)
+            var firstBonePos = _boneMapping.GetPositionById(coord, bone.StartId);
+            var lastBonePos = _boneMapping.GetPositionById(coord, bone.EndId);
+
+            Debug.DrawLine(firstBonePos, lastBonePos, Color.red);
+            
+            var front = Vector3.Cross(lastBonePos - firstBonePos, Vector3.right);
+            Debug.DrawRay(firstBonePos, front.normalized, Color.green);
+            
+            var x = Quaternion.LookRotation(front, lastBonePos - firstBonePos);
+  
+            t.rotation = x;
+            
+            var currentDistance = Vector3.Distance(firstBonePos, lastBonePos);
+
+            if (cachedData.ContainsKey(bone.Name) && cachedData[bone.Name].length > 0.0f)
             {
-                var spine = _boneReference.SpineChain[index];
+                var scaleFactor = currentDistance / cachedData[bone.Name].length;
                 
-                //Debug.Log(index + spine.name);
-
-                //Debug.DrawLine(resultList[index], resultList[index + 1], new Color(index * 100, 0, 0));
-                
-                spine.position = resultList[index];
-                spine.rotation = Quaternion.FromToRotation(Vector3.up, resultList[index + 1] - resultList[index]);
+                if (currentDistance != 0.0)
+                {
+                    t.localScale = new Vector3(1, scaleFactor, 1);
+                }
+            
+                Debug.Log(cachedData[bone.Name].length + " " + currentDistance);
             }
-        }
-
-        if (_boneReference.Head != null)
-        {
-            var head = _boneReference.Head;
-            
-            head.position = coord[32] + offset;
-            head.rotation = Quaternion.FromToRotation(Vector3.up, coord[54] - coord[32]);
-        }
-
-        {
-            var root = _boneReference.root;
-            
-            root.position = (coord[8] + coord[11]) / 2.0f + offset;
-        }
-
-
-        foreach (var dict in CSVReader.newJointCsv) //IKRig 생성
-        {
-            string ikName = (string)dict["IKName"];
-
-            string jointType = (string)dict["JointType"];
-            
-            
-
-            switch (jointType)
+            else
             {
-                case "Position":
-                    int jointID = (int)dict["JointID"];
-                    int targetID = (int)dict["TargetID"];
-                        
-                    var bone = _boneReference.GetReferenceByName(ikName);
-                    bone.position = coord[jointID] + offset;
-
-                    var firstBonePos = coord[jointID];
-                    var lastBonePos = coord[targetID];
-
-                    Debug.DrawLine(firstBonePos, lastBonePos, Color.red);
-                    
-                    var front = Vector3.Cross(lastBonePos - firstBonePos, Vector3.right);
-                    Debug.DrawRay(firstBonePos, front.normalized, Color.green);
-                    
-                    var x = Quaternion.LookRotation(front, lastBonePos - firstBonePos);
-          
-                    bone.rotation = x;
-                    
-                    var currentDistance = Vector3.Distance(firstBonePos, lastBonePos);
-
-                    if (cachedData.ContainsKey(ikName) && cachedData[ikName].length > 0.0f)
-                    {
-                        var scaleFactor = currentDistance / cachedData[ikName].length;
-                        
-                        if (currentDistance != 0.0)
-                        {
-                            bone.localScale = new Vector3(1, scaleFactor, 1);
-                        }
-                    
-                        Debug.Log(cachedData[ikName].length + " " + currentDistance);
-                    }
-                    else
-                    {
-                        Debug.Log(ikName + "not in cachedData");
-                    }
-                    
-                    
-
-                   
-                    
-                    
-                    break;
-                case "Rotation":
-                    break;
+                Debug.Log(bone.Name + "not in cachedData");
             }
         }
     }
