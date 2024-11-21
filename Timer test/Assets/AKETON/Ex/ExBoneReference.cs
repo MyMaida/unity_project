@@ -25,7 +25,14 @@ public class ExBoneReference : MonoBehaviour
 
     public Transform GetReferenceByName(string name)
     {
-        return bones.Find(b => b.name.Contains(name));
+        var b = bones.Find(b => b.name.Contains(name));
+        
+        if (b == null)
+        {
+            Debug.LogWarning("ExBoneReference::GetReferenceByName::" + name + " is null!");
+        }
+        
+        return b;
     }
     
     [ContextMenu("AutoUpdateReferences")]
@@ -42,7 +49,7 @@ public class ExBoneReference : MonoBehaviour
         {
             var child = rootBone.GetChild(i);
 
-            if (!child.name.Contains("_End"))
+            if (!child.name.Contains("_End") && !child.name.Contains("Base"))
             {
                 bones.Add(child);
             }

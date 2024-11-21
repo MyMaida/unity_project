@@ -20,7 +20,7 @@ public class BoneMoveScript : MonoBehaviour
     public BoneMapping _boneMapping;
     public IReceiver _receiver;
 
-    public SerializableDictionary<string, CachedData> cachedData;
+    public SerializableDictionary<string, CachedData> cachedData= new SerializableDictionary<string, CachedData>();
     
     // Start is called before the first frame update
     void Start()
@@ -30,32 +30,52 @@ public class BoneMoveScript : MonoBehaviour
         _receiver = FindObjectOfType<IReceiver>();
     }
 
-    private void Reset()
+    [ContextMenu("Initialize")]
+    private void Initialize()
     {
         CSVReader.ResetCachedCsv();
         
         _boneReference = GetComponent<ExBoneReference>();
         _boneMapping = GetComponent<BoneMapping>();
         _receiver = FindObjectOfType<IReceiver>();
-        
-        cachedData = new SerializableDictionary<string, CachedData>();
 
         var bones = _boneMapping.Bones;
         
+        cachedData.Clear();
         
         
         foreach (var bone in bones) //IKRig 생성
         {
             var c = new CachedData();
             
-            var a = _boneReference.GetReferenceByName(bone.Name);
+            Debug.Log(bone + "Processing");
+
+            var startBoneName = _boneMapping.GetBoneNameByJointId(bone.StartJointID);
+            var endBoneName = _boneMapping.GetBoneNameByJointId(bone.NextJointID);
+            
+            Debug.Log($"{startBoneName} and {endBoneName}");
+                
+            
+            var a = _boneReference.GetReferenceByName(
+                startBoneName 
+                );
            
             
             
-            var b = _boneReference.GetReferenceByName(_boneMapping.GetBoneNameById(bone.EndId));
+            var b = _boneReference.GetReferenceByName(
+                endBoneName );
+
+            if (a == null || b == null)
+            {
+                continue;
+            }
+            
             c.length = Vector3.Distance(a.position, b.position);
             
-            cachedData.Add(bone.Name, c);
+            if (!cachedData.ContainsKey(startBoneName))
+            {
+                cachedData.Add(startBoneName, c);
+            }
         }
     }
 
@@ -71,46 +91,51 @@ public class BoneMoveScript : MonoBehaviour
         
 
 
-        foreach (var bone in _boneMapping.Bones) //IKRig 생성
+        foreach (var bone in _boneMapping.Bones)
         {
-                
-            var t = _boneReference.GetReferenceByName(bone.Name);
+            var boneStartName = _boneMapping.GetBoneNameByJointId(bone.StartJointID);    
+            
+            var t = _boneReference.GetReferenceByName(boneStartName);
 
             if (t == null)
             {
                 continue;
             }
             
-            t.position = _boneMapping.GetPositionById(coord, bone.StartId) + offset;
+            //Debug.Log(_boneMapping.GetBoneNameById(bone.StartId) + "" + bone.StartId + _boneMapping.GetPositionById(coord, bone.StartId));
+            
+            t.position = _boneMapping.GetPositionByJointId(coord, bone.StartJointID) + offset;
 
-            var firstBonePos = _boneMapping.GetPositionById(coord, bone.StartId);
-            var lastBonePos = _boneMapping.GetPositionById(coord, bone.EndId);
+            var firstBonePos = _boneMapping.GetPositionByJointId(coord, bone.StartJointID);
+            var lastBonePos = _boneMapping.GetPositionByJointId(coord, bone.NextJointID);
 
-            Debug.DrawLine(firstBonePos, lastBonePos, Color.red);
             
             var front = Vector3.Cross(lastBonePos - firstBonePos, Vector3.right);
-            Debug.DrawRay(firstBonePos, front.normalized, Color.green);
             
             var x = Quaternion.LookRotation(front, lastBonePos - firstBonePos);
   
             t.rotation = x;
             
+            
             var currentDistance = Vector3.Distance(firstBonePos, lastBonePos);
 
-            if (cachedData.ContainsKey(bone.Name) && cachedData[bone.Name].length > 0.0f)
+            if (cachedData.ContainsKey(boneStartName) && cachedData[boneStartName].length > 0.0f)
             {
-                var scaleFactor = currentDistance / cachedData[bone.Name].length;
+                var scaleFactor = currentDistance / cachedData[boneStartName ].length;
                 
                 if (currentDistance != 0.0)
                 {
                     t.localScale = new Vector3(1, scaleFactor, 1);
                 }
             
-                Debug.Log(cachedData[bone.Name].length + " " + currentDistance);
             }
             else
             {
-                Debug.Log(bone.Name + "not in cachedData");
+                Debug.Log(boneStartName  + "not in cachedData");
+                if (cachedData.ContainsKey(boneStartName))
+                {
+                    Debug.Log(cachedData[boneStartName].length + " " + currentDistance);
+                }
             }
         }
     }

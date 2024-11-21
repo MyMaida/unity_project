@@ -17,39 +17,46 @@ public class CSVReader
     private static List<Dictionary<string, object>> Read(string file)
     {
         var list = new List<Dictionary<string, object>>();
-        TextAsset data = Resources.Load (file) as TextAsset;
+        TextAsset data = Resources.Load(file) as TextAsset;
 
-        var lines = Regex.Split (data.text, LINE_SPLIT_RE);
+        var lines = Regex.Split(data.text, LINE_SPLIT_RE);
 
-        if(lines.Length <= 1) return list;
+        if (lines.Length <= 1) return list;
 
         var header = Regex.Split(lines[0], SPLIT_RE);
-        for(var i=1; i < lines.Length; i++) {
-
+        for (var i = 1; i < lines.Length; i++)
+        {
             var values = Regex.Split(lines[i], SPLIT_RE);
-            if(values.Length == 0 ||values[0] == "") continue;
+            if (values.Length == 0 || values[0] == "") continue;
 
             var entry = new Dictionary<string, object>();
-            for(var j=0; j < header.Length && j < values.Length; j++ ) {
+            for (var j = 0; j < header.Length && j < values.Length; j++)
+            {
                 string value = values[j];
                 value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", "");
                 object finalvalue = value;
                 int n;
                 float f;
-                if(int.TryParse(value, out n)) {
+                if (int.TryParse(value, out n))
+                {
                     finalvalue = n;
-                } else if (float.TryParse(value, out f)) {
+                }
+                else if (float.TryParse(value, out f))
+                {
                     finalvalue = f;
                 }
+
                 entry[header[j]] = finalvalue;
             }
-            list.Add (entry);
+
+            list.Add(entry);
         }
+
         return list;
     }
 
     public static bool isMirrored;
-    
+
     public static Dictionary<string, List<Dictionary<string, object>>> cachedCsv = new();
 
     public static void ResetCachedCsv()
@@ -59,10 +66,8 @@ public class CSVReader
             cachedCsv.Clear();
             ResetOnce = true;
         }
-        
-        
     }
-    
+
     public static bool ResetOnce = false;
 
     private static List<Dictionary<string, object>> GetCachedCsvByKey(string key)
@@ -71,36 +76,30 @@ public class CSVReader
         {
             cachedCsv.Add(key, Read(key));
         }
-                
+
         return cachedCsv[key];
     }
 
-    public static List<Dictionary<string, object>> jointCsv {
+    public static List<Dictionary<string, object>> jointCsv
+    {
         get
         {
             if (isMirrored)
             {
-                
                 return GetCachedCsvByKey("joints_reverse");
             }
             else
             {
                 return GetCachedCsvByKey("joints");
             }
-            
-            
         }
-        
     }
 
     public static List<Dictionary<string, object>> newJointCsv
     {
-        get
-        {
-            return GetCachedCsvByKey("new_joints");
-        }
+        get { return GetCachedCsvByKey("new_joints"); }
     }
-    
+
     public static List<Dictionary<string, object>> boneCsv => GetCachedCsvByKey("bones");
 }
 
@@ -109,12 +108,13 @@ public static class Helpers
     public const int CoordSize = 408;
     public const int CoordVectorSize = 408 / 3;
     public static Vector3 PointB = new Vector3(0, -20, 0);
-    public static Transform RecursiveFindChild(Transform parent, string childName) 
+
+    public static Transform RecursiveFindChild(Transform parent, string childName)
         //비효율적인 함수라 추후 최적화 가능 , 재귀적으로 이름으로 자식 오브젝트를 찾습니다.
     {
         foreach (Transform child in parent)
         {
-            if(child.name == childName)
+            if (child.name == childName)
             {
                 return child;
             }
@@ -127,6 +127,7 @@ public static class Helpers
                 }
             }
         }
+
         return null;
     }
 
@@ -141,19 +142,20 @@ public static class Helpers
 
         return bone;
     }
-    
+
     public static Transform FindIKRig(Transform parent, string childName)
-    { // 바나나 오브젝트 내의 IK 릭을 찾는 함수
+    {
+        // 바나나 오브젝트 내의 IK 릭을 찾는 함수
         var x = parent.Find($"IKRig/{childName}");
         return x;
     }
-    
-    
+
+
     public static Vector3 GetReceivedPosition(Vector3[] coord, int Point) // 원래 있던 함수입니다.
     {
         return coord[Point];
     }
-    
+
     public static void SetValue(object obj, string propertyPath, object value)
     {
         string[] properties = propertyPath.Split('.');
@@ -167,30 +169,29 @@ public static class Helpers
             FieldInfo fieldInfo = obj.GetType().GetField(fields[index]);
             PropertyInfo propertyInfo = obj.GetType().GetProperty(fields[index]);
             object childObj;
-            
+
             if (fieldInfo != null)
             {
                 childObj = fieldInfo.GetValue(obj);
-                
             }
             else if (propertyInfo != null)
             {
                 childObj = propertyInfo.GetValue(obj);
-                
             }
             else
             {
-                throw new ArgumentException($"Property '{fields[index]}' not found on object of type '{obj.GetType()}'");
+                throw new ArgumentException(
+                    $"Property '{fields[index]}' not found on object of type '{obj.GetType()}'");
             }
-            
+
             SetValueRecursive(childObj, fields, index + 1, value);
         }
         else
         {
             FieldInfo fieldInfo = obj.GetType().GetField(fields[index]);
             PropertyInfo propertyInfo = obj.GetType().GetProperty(fields[index]);
-            
-            
+
+
             if (fieldInfo != null)
             {
                 fieldInfo.SetValue(obj, value);
@@ -201,143 +202,51 @@ public static class Helpers
             }
             else
             {
-                throw new ArgumentException($"Property '{fields[index]}' not found on object of type '{obj.GetType()}'");
+                throw new ArgumentException(
+                    $"Property '{fields[index]}' not found on object of type '{obj.GetType()}'");
             }
         }
     }
+    
+    
 }
 
+
 [System.Serializable]
-        
-        
-          
-              public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
-        
-        
-          
-              {
-        
-        
-          
-                  [SerializeField]
-        
-        
-          
-                  private List<TKey> keys = new List<TKey>();
-        
-        
-          
-          
+public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
+{
+    [SerializeField] private List<TKey> keys = new List<TKey>();
+    [SerializeField] private List<TValue> values = new List<TValue>();
 
-        
-        
-          
-                  [SerializeField]
-        
-        
-          
-                  private List<TValue> values = new List<TValue>();
-        
-        
-          
-          
 
-        
-        
-          
-                  // save the dictionary to lists
-        
-        
-          
-                  public void OnBeforeSerialize()
-        
-        
-          
-                  {
-        
-        
-          
-                      keys.Clear();
-        
-        
-          
-                      values.Clear();
-        
-        
-          
-                      foreach (KeyValuePair<TKey, TValue> pair in this)
-        
-        
-          
-                      {
-        
-        
-          
-                          keys.Add(pair.Key);
-        
-        
-          
-                          values.Add(pair.Value);
-        
-        
-          
-                      }
-        
-        
-          
-                  }
-        
-        
-          
-          
+    // save the dictionary to lists
 
-        
-        
-          
-                  // load dictionary from lists
-        
-        
-          
-                  public void OnAfterDeserialize()
-        
-        
-          
-                  {
-        
-        
-          
-                      this.Clear();
-        
-        
-          
-          
 
-        
-        
-          
-                      if (keys.Count != values.Count)
-        
-        
-          
-                          throw new System.Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
-        
-        
-          
-          
+    public void OnBeforeSerialize()
+    {
+        keys.Clear();
+        values.Clear();
+        foreach (KeyValuePair<TKey, TValue> pair in this)
+        {
+            keys.Add(pair.Key);
+            values.Add(pair.Value);
+        }
+    }
 
+
+    // load dictionary from lists
+
+
+    public void OnAfterDeserialize()
+    {
+        this.Clear();
+
+        if (keys.Count != values.Count)
+            
+            throw new System.Exception(string.Format(
+                "there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
         
-        
-          
-                      for (int i = 0; i < keys.Count; i++)
-        
-        
-          
-                          this.Add(keys[i], values[i]);
-        
-        
-          
-                  }
-        
-        
-          
-              }
+        for (int i = 0; i < keys.Count; i++)
+            this.Add(keys[i], values[i]);
+    }
+}

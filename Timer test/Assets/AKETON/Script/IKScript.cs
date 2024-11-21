@@ -169,7 +169,7 @@ public class IKScript : MonoBehaviour
                     Mesh LoadShape(string filename)
                     {
                         const string EditorFolder = "Packages/com.unity.animation.rigging/Editor/";
-                        const string ShadersFolder = EditorFolder + "Shaders/";
+                        //const string ShadersFolder = EditorFolder + "Shaders/";
                         const string ShapesFolder = EditorFolder + "Shapes/";
                         
                         return AssetDatabase.LoadAssetAtPath<Mesh>(ShapesFolder + filename);

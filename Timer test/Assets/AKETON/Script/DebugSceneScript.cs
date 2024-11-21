@@ -106,7 +106,7 @@ public class DebugSceneScript : MonoBehaviour
         
         var coord = receiver.GetCoord();
         
-        for (int i = 0; i < 408 / 3; i++)
+        for (int i = 0; i < Helpers.CoordVectorSize; i++)
         {
             var Position = Vector3.zero;
             if (!isRaw)
