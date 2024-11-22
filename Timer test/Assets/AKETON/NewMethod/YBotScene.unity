@@ -1517,13 +1517,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515795421}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.9414528, y: -0.057891477, z: 0.2522615, w: 0.21605398}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 154.15, y: -30, z: 0}
 --- !u!1 &546733246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &623807187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   veticalVector: {x: 0, y: 0, z: 0}
   isFloorTransformSet: 0
   useVerticalVector: 0
-  receivedScale: 19
+  receivedScale: 21.7
 --- !u!4 &758941256
 Transform:
   m_ObjectHideFlags: 0
@@ -3566,16 +3566,16 @@ MonoBehaviour:
     - length: 0.27405167
     - length: 0.27614093
     - length: 0.2740439
-    - length: 0.420982
+    - length: 0.42098197
     - length: 0.40600345
-    - length: 0.42099038
+    - length: 0.4209904
     - length: 0.40599433
-    - length: 0.10789591
+    - length: 0.10789579
     - length: 0.12922394
-    - length: 0.12922177
-    - length: 0.09999075
-    - length: 0.117319755
-    - length: 0.1345884
+    - length: 0.12922178
+    - length: 0.09999069
+    - length: 0.11731975
+    - length: 0.13458852
     - length: 0.1505338
 --- !u!114 &1161570685
 MonoBehaviour:
@@ -3624,142 +3624,142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc97277a6052364484186839c51acb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bones:
-  - StartJointID: 0
-    NextJointID: 12
-    ApplyScale: 0
-  - StartJointID: 1
-    NextJointID: 0
-    ApplyScale: 1
-  - StartJointID: 8
-    NextJointID: 1
-    ApplyScale: 1
-  - StartJointID: 2
-    NextJointID: 13
-    ApplyScale: 0
-  - StartJointID: 3
-    NextJointID: 2
-    ApplyScale: 1
-  - StartJointID: 9
-    NextJointID: 3
-    ApplyScale: 1
-  - StartJointID: 4
-    NextJointID: 14
-    ApplyScale: 0
-  - StartJointID: 5
-    NextJointID: 4
-    ApplyScale: 1
-  - StartJointID: 10
-    NextJointID: 5
-    ApplyScale: 1
-  - StartJointID: 6
-    NextJointID: 15
-    ApplyScale: 0
-  - StartJointID: 7
-    NextJointID: 6
-    ApplyScale: 1
-  - StartJointID: 11
-    NextJointID: 7
-    ApplyScale: 1
-  - StartJointID: -1
-    NextJointID: 16
-    ApplyScale: 0
-  - StartJointID: -2
-    NextJointID: -1
-    ApplyScale: 1
-  - StartJointID: -3
-    NextJointID: 8
-    ApplyScale: 1
-  - StartJointID: -4
-    NextJointID: 9
-    ApplyScale: 1
-  - StartJointID: -5
-    NextJointID: -6
-    ApplyScale: 1
-  - StartJointID: -6
-    NextJointID: -7
-    ApplyScale: 1
-  - StartJointID: -7
-    NextJointID: -8
-    ApplyScale: 1
-  - StartJointID: -8
-    NextJointID: -2
-    ApplyScale: 1
-  Joints:
-  - Name: LeftHand
-    rawIndex: 4
-  - Name: LeftForeArm
-    rawIndex: 3
-  - Name: RightHand
+  bones:
+  - startJointID: 0
+    nextJointID: 12
+    scaleApplyMode: 0
+  - startJointID: 1
+    nextJointID: 0
+    scaleApplyMode: 1
+  - startJointID: 8
+    nextJointID: 1
+    scaleApplyMode: 1
+  - startJointID: 2
+    nextJointID: 13
+    scaleApplyMode: 0
+  - startJointID: 3
+    nextJointID: 2
+    scaleApplyMode: 1
+  - startJointID: 9
+    nextJointID: 3
+    scaleApplyMode: 1
+  - startJointID: 4
+    nextJointID: 14
+    scaleApplyMode: 0
+  - startJointID: 5
+    nextJointID: 4
+    scaleApplyMode: 1
+  - startJointID: 10
+    nextJointID: 5
+    scaleApplyMode: 1
+  - startJointID: 6
+    nextJointID: 15
+    scaleApplyMode: 0
+  - startJointID: 7
+    nextJointID: 6
+    scaleApplyMode: 1
+  - startJointID: 11
+    nextJointID: 7
+    scaleApplyMode: 1
+  - startJointID: -1
+    nextJointID: 16
+    scaleApplyMode: 0
+  - startJointID: -2
+    nextJointID: -1
+    scaleApplyMode: 1
+  - startJointID: -3
+    nextJointID: 8
+    scaleApplyMode: 1
+  - startJointID: -4
+    nextJointID: 9
+    scaleApplyMode: 1
+  - startJointID: -5
+    nextJointID: -6
+    scaleApplyMode: 0
+  - startJointID: -6
+    nextJointID: -7
+    scaleApplyMode: 2
+  - startJointID: -7
+    nextJointID: -8
+    scaleApplyMode: 2
+  - startJointID: -8
+    nextJointID: -2
+    scaleApplyMode: 2
+  joints:
+  - name: LeftHand
     rawIndex: 7
-  - Name: RightForeArm
+  - name: LeftForeArm
     rawIndex: 6
-  - Name: LeftFoot
-    rawIndex: 10
-  - Name: LeftLeg
-    rawIndex: 9
-  - Name: RightFoot
+  - name: RightHand
+    rawIndex: 4
+  - name: RightForeArm
+    rawIndex: 3
+  - name: LeftFoot
     rawIndex: 13
-  - Name: RightLeg
+  - name: LeftLeg
     rawIndex: 12
-  - Name: LeftArm
-    rawIndex: 2
-  - Name: RightArm
+  - name: RightFoot
+    rawIndex: 10
+  - name: RightLeg
+    rawIndex: 9
+  - name: LeftArm
     rawIndex: 5
-  - Name: LeftUpLeg
-    rawIndex: 8
-  - Name: RightUpLeg
+  - name: RightArm
+    rawIndex: 2
+  - name: LeftUpLeg
     rawIndex: 11
-  - Name: LeftHand_End
-    rawIndex: 125
-  - Name: RightHand_End
+  - name: RightUpLeg
+    rawIndex: 8
+  - name: LeftHand_End
     rawIndex: 103
-  - Name: LeftFoot_End
-    rawIndex: 21
-  - Name: RightFoot_End
+  - name: RightHand_End
+    rawIndex: 125
+  - name: LeftFoot_End
     rawIndex: 19
-  - Name: HeadCenter
+  - name: RightFoot_End
+    rawIndex: 21
+  - name: HeadCenter
     rawIndex: 54
-  VirtualJoints:
-  - Name: Head
+  virtualJoints:
+  - name: Head
     rawIndexs: 20000000
     factors:
     - 1
-  - Name: Neck
+  - name: Neck
     rawIndexs: 01000000
     factors:
     - 1
-  - Name: LeftShoulder
-    rawIndexs: 0100000002000000
-    factors:
-    - 0.5
-    - 0.5
-  - Name: RightShoulder
+  - name: LeftShoulder
     rawIndexs: 0100000005000000
     factors:
     - 0.5
     - 0.5
-  - Name: Hips
+  - name: RightShoulder
+    rawIndexs: 0100000002000000
+    factors:
+    - 0.5
+    - 0.5
+  - name: Hips
     rawIndexs: 080000000b000000
     factors:
     - 0.5
     - 0.5
-  - Name: Spine
+  - name: Spine
     rawIndexs: 01000000fbffffff
     factors:
-    - 0.2
+    - 0.3
+    - 0.7
+  - name: Spine1
+    rawIndexs: 01000000fbffffff
+    factors:
+    - 0.6
+    - 0.4
+  - name: Spine2
+    rawIndexs: 01000000fbffffff
+    factors:
     - 0.8
-  - Name: Spine1
-    rawIndexs: 01000000fbffffff
-    factors:
-    - 0.5
-    - 0.5
-  - Name: Spine2
-    rawIndexs: 01000000fbffffff
-    factors:
-    - 0.8
     - 0.2
-  CalculatedVirtualPoints:
+  calculatedVirtualPoints:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -4016,8 +4016,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327982237}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0013292668, y: 0.70081323, z: 0.71325505, w: 0.011242609}
-  m_LocalPosition: {x: 0.095064625, y: -0.96509665, z: 0.11334151}
+  m_LocalRotation: {x: 0.0013292655, y: 0.7008132, z: 0.71325505, w: 0.011242614}
+  m_LocalPosition: {x: 0.09506463, y: -0.9650967, z: 0.113341525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4478,8 +4478,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619648636}
   serializedVersion: 2
-  m_LocalRotation: {x: 7.537291e-11, y: 0.0000017531268, z: -0.000043883512, w: 1}
-  m_LocalPosition: {x: 0.00000023841858, y: 0.99791867, z: 0.00000052154064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4727,8 +4727,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679428346}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0016812136, y: 0.7007904, z: 0.71327084, w: -0.011609028}
-  m_LocalPosition: {x: -0.09489554, y: -0.9650913, z: 0.11336452}
+  m_LocalRotation: {x: -0.0016812121, y: 0.7007905, z: 0.7132707, w: -0.011609022}
+  m_LocalPosition: {x: -0.094895534, y: -0.9650912, z: 0.11336452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5773,7 +5773,7 @@ Transform:
   m_GameObject: {fileID: 8471895808718289409}
   serializedVersion: 2
   m_LocalRotation: {x: 0.041083634, y: 0.4647545, z: 0.88078487, w: -0.0808302}
-  m_LocalPosition: {x: 0.103519164, y: -0.9836064, z: -0.029439848}
+  m_LocalPosition: {x: 0.103519164, y: -0.9836064, z: -0.029440027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6410,7 +6410,7 @@ Transform:
   m_GameObject: {fileID: 3661821582957728261}
   serializedVersion: 2
   m_LocalRotation: {x: 0.043078896, y: 0.6878759, z: 0.7197251, w: -0.083467245}
-  m_LocalPosition: {x: 0.13596095, y: -1.0833056, z: 0.116452046}
+  m_LocalPosition: {x: 0.13596095, y: -1.0833056, z: 0.11645187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7093,7 +7093,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4890665111002177498}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0041329637, y: -0.018273184, z: 0.99982387, w: 0.0010845336}
+  m_LocalRotation: {x: -0.0041329637, y: -0.018273396, z: 0.99982387, w: 0.0010845469}
   m_LocalPosition: {x: 0.10438116, y: -0.556635, z: -0.01382405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8254,7 +8254,7 @@ Transform:
   m_GameObject: {fileID: 8022515958598426545}
   serializedVersion: 2
   m_LocalRotation: {x: 0.043078896, y: 0.6878759, z: 0.7197251, w: -0.083467245}
-  m_LocalPosition: {x: 0.14876425, y: -1.08614, z: 0.18659955}
+  m_LocalPosition: {x: 0.14876425, y: -1.08614, z: 0.18659937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

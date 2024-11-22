@@ -42,7 +42,7 @@ public class BaseReceiver : MonoBehaviour
     public bool isFloorTransformSet;
     public bool useVerticalVector = true;
     
-    public float receivedScale = 18.0f;
+    public float receivedScale = 20.0f;
     
     private bool isFinished;
     
@@ -69,8 +69,14 @@ public class BaseReceiver : MonoBehaviour
         var Position = (V - baseCoord[10]) / 50 + PointB;
         
         
+        
+        
         Vector3 pointA = (baseCoord[134] - baseCoord[135]) / 50 + PointB;
         Vector3 pointC = new Vector3(0, 0, 0);
+        
+        Debug.DrawLine(Vector3.zero, pointA, Color.red, duration: 0.5f);
+        Debug.DrawLine(Vector3.zero, PointB, Color.green, duration: 0.5f);
+        Debug.DrawLine(Vector3.zero, pointC, Color.blue, duration: 0.5f);
         
         // 두 벡터 계산
         Vector3 vector1 = pointA - PointB;
@@ -140,9 +146,11 @@ public class BaseReceiver : MonoBehaviour
                     }
                 }
                 
+                Debug.Log(baseCoord[0]);
+                
                 var newBaseCoord = new Vector3[Helpers.CoordVectorSize];
                 
-                if (mode == ReceiverMode.Transformed || mode == ReceiverMode.TransformAndScaled)
+                if (mode == ReceiverMode.TransformAndScaled || mode == ReceiverMode.Transformed)
                 {
 
                     for (int i = 0; i < Helpers.CoordVectorSize; i++)
@@ -152,6 +160,8 @@ public class BaseReceiver : MonoBehaviour
 
                     baseCoord = newBaseCoord;
                 }
+                
+                Debug.Log("->" + baseCoord[0]);
                 
                 if (mode == ReceiverMode.TransformAndScaled || mode == ReceiverMode.Scaled)
                 {
@@ -178,10 +188,18 @@ public class BaseReceiver : MonoBehaviour
 
                     for (int i = 0; i < Helpers.CoordVectorSize; i++)
                     {
+                        var saved = baseCoord[i];
+                        
+                        
                         baseCoord[i] = baseCoord[i] / receivedScale - centerOfFoot +
                                        (useVerticalVector ? veticalVector - resizedVerticalVector : Vector3.zero);
+                        
+                        
+                            
                     }
                 }
+                
+                Debug.Log("->" + baseCoord[0]);
 
                 OnReceive?.Invoke();
             }

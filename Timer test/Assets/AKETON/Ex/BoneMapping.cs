@@ -9,63 +9,73 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public struct VirtualJoint
 {
-    public string Name;
-    [FormerlySerializedAs("ID")] public int[] rawIndexs;
-    [FormerlySerializedAs("Factor")] public float[] factors;
+    public string name;
+    public int[] rawIndexs;
+    public float[] factors;
 
     
 
     public VirtualJoint(string name, int[] rawIndexs, float[] factors)
     {
-        Name = name;
+        this.name = name;
         this.rawIndexs = rawIndexs;
         this.factors = factors;
     }
 }
 
+public enum ScaleApplyMode
+{
+    None,
+    Length,
+    Size
+}
+
+
 [System.Serializable]
 public struct Bone
 {
-    [FormerlySerializedAs("StartId")] public int StartJointID;
-    [FormerlySerializedAs("EndId")] public int NextJointID;
+    public int startJointID;
+    public int nextJointID;
 
-    public bool ApplyScale;
+    public ScaleApplyMode scaleApplyMode;
 
-    public Bone(int startJointID, int nextJointID, bool applyScale = true)
+    public Bone(int startJointID, int nextJointID, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length)
     {
-        this.StartJointID = startJointID;
-        this.NextJointID = nextJointID;
-        this.ApplyScale = applyScale;
+        this.startJointID = startJointID;
+        this.nextJointID = nextJointID;
+        this.scaleApplyMode = scaleApplyMode;
+        
+        
     }
 }
 
 public static class BoneManager
 {
-    public static List<Joint> Joints;
-    public static List<VirtualJoint> VirtualJoints;
+    public static List<Joint> joints;
+    public static List<VirtualJoint> virtualJoints;
     public static int GetJointIDFromName(string name)
     {
-        var defaultID = Joints.FindIndex((x) => x.Name == name);
-        var virtualID = (VirtualJoints.FindIndex((joint) => joint.Name == name) + 1) * -1;
+        var defaultID = joints.FindIndex((x) => x.name == name);
+        var virtualID = (virtualJoints.FindIndex((joint) => joint.name == name) + 1) * -1;
             
         return defaultID == -1 ? virtualID : defaultID;
     }
     
-    public static Bone NewBoneFromName(string start, string end, bool applyScale = true)
+    public static Bone NewBoneFromName(string start, string end, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length)
     {
-        var bone = new Bone(GetJointIDFromName(start), GetJointIDFromName(end), applyScale);
+        var bone = new Bone(GetJointIDFromName(start), GetJointIDFromName(end), scaleApplyMode);
         return bone;
     }
 }
 [System.Serializable]
 public struct Joint
 {
-    public string Name;
-    [FormerlySerializedAs("ID")] public int rawIndex;
+    public string name;
+     public int rawIndex;
 
     public Joint(string name, int rawIndex)
     {
-        this.Name = name;
+        this.name = name;
         this.rawIndex = rawIndex;
     }
 }
@@ -73,12 +83,12 @@ public struct Joint
 [System.Serializable]
 public class BoneMapping  : MonoBehaviour
 {
-    public Bone[] Bones;
-    public Joint[] Joints;
+    public Bone[] bones;
+    public Joint[] joints;
     
-    public VirtualJoint[] VirtualJoints;
+    public VirtualJoint[] virtualJoints;
     
-    public Vector3[] CalculatedVirtualPoints;
+    public Vector3[] calculatedVirtualPoints;
 
     public string GetBoneNameByJointId(int id)
     {
@@ -86,11 +96,11 @@ public class BoneMapping  : MonoBehaviour
         {
             var virtualID = Math.Abs(id) - 1;
             
-            return VirtualJoints[virtualID].Name;
+            return virtualJoints[virtualID].name;
         }
         else
         {
-            return Joints[id].Name;
+            return joints[id].name;
         }
     }
     
@@ -100,20 +110,20 @@ public class BoneMapping  : MonoBehaviour
         {
             var virtualID = Math.Abs(id) - 1;
 
-            return CalculatedVirtualPoints[virtualID];
+            return calculatedVirtualPoints[virtualID];
         }
         else
         {
-            var rawIndex = Joints[id].rawIndex;
+            var rawIndex = joints[id].rawIndex;
             return received[rawIndex];
         }
     }
     
     public void CalculateVirtualPoints(Vector3[] received)
     {
-        for (int i = 0; i < VirtualJoints.Length; i++)
+        for (int i = 0; i < virtualJoints.Length; i++)
         {
-            var currentVirtualPoint = VirtualJoints[i];
+            var currentVirtualPoint = virtualJoints[i];
             
             Vector3 resultVector = Vector3.zero;
 
@@ -135,7 +145,7 @@ public class BoneMapping  : MonoBehaviour
                 
                 if (id < 0)
                 {
-                    point = CalculatedVirtualPoints[virtualID];
+                    point = calculatedVirtualPoints[virtualID];
                 }
                 else
                 {
@@ -147,7 +157,7 @@ public class BoneMapping  : MonoBehaviour
                 resultVector += point * currentVirtualPoint.factors[j];
             }
             
-            CalculatedVirtualPoints[i] = resultVector;
+            calculatedVirtualPoints[i] = resultVector;
         }
     }
 
@@ -156,75 +166,84 @@ public class BoneMapping  : MonoBehaviour
     [ContextMenu("Initialize")]
     public void Initialize()
     {
-        Joints = new[]
+        joints = new[]
         {
-            new Joint("LeftHand", 4), 
-            new Joint("LeftForeArm", 3), 
-            new Joint("RightHand", 7), 
-            new Joint("RightForeArm", 6), 
-            new Joint("LeftFoot", 10), 
-            new Joint("LeftLeg", 9), 
-            new Joint("RightFoot", 13), 
-            new Joint("RightLeg", 12),
-            new Joint("LeftArm", 2),
-            new Joint("RightArm", 5),
-            new Joint("LeftUpLeg", 8),
-            new Joint("RightUpLeg", 11),
+            new Joint("LeftHand", 7), 
+            new Joint("LeftForeArm", 6), 
             
-            new Joint("LeftHand_End", 125),
-            new Joint("RightHand_End", 103),
-            new Joint("LeftFoot_End", 21),
-            new Joint("RightFoot_End", 19),
+            new Joint("RightHand", 4), 
+            new Joint("RightForeArm", 3), 
+            
+            new Joint("LeftFoot", 13), 
+            new Joint("LeftLeg", 12), 
+            
+            new Joint("RightFoot", 10), 
+            new Joint("RightLeg", 9),
+            
+            new Joint("LeftArm", 5),
+            new Joint("RightArm", 2),
+            
+            new Joint("LeftUpLeg", 11),
+            new Joint("RightUpLeg", 8),
+            
+            new Joint("LeftHand_End", 103),
+            new Joint("RightHand_End", 125),
+            
+            new Joint("LeftFoot_End", 19),
+            new Joint("RightFoot_End", 21),
+            
             new Joint("HeadCenter", 54),
         };
         
-        VirtualJoints = new VirtualJoint[]
+        virtualJoints = new VirtualJoint[]
         {
             new VirtualJoint("Head",new[] {32}, new[] {1.0f}), // -1
             new VirtualJoint("Neck",new[] {1}, new[] {1.0f}), // -2
-            new VirtualJoint("LeftShoulder",new[] {1, 2}, new[] {0.5f, 0.5f}), // -3
-            new VirtualJoint("RightShoulder",new[] {1, 5}, new[] {0.5f, 0.5f}), // -4
+            new VirtualJoint("LeftShoulder",new[] {1, 5}, new[] {0.5f, 0.5f}), // -3
+            new VirtualJoint("RightShoulder",new[] {1, 2}, new[] {0.5f, 0.5f}), // -4
             new VirtualJoint("Hips",new[] {8, 11}, new[] {0.5f, 0.5f}), // -5
             
-            new VirtualJoint("Spine",new[] {1, -5}, new[] {0.2f, 0.8f}), // -6
-            new VirtualJoint("Spine1",new[] {1, -5}, new[] {0.5f, 0.5f}), // -7
+            new VirtualJoint("Spine",new[] {1, -5}, new[] {0.3f, 0.7f}), // -6
+            new VirtualJoint("Spine1",new[] {1, -5}, new[] {0.6f, 0.4f}), // -7
             new VirtualJoint("Spine2",new[] {1, -5}, new[] {0.8f, 0.2f}), // -8
         };
 
-        BoneManager.Joints = Joints.ToList();
-        BoneManager.VirtualJoints = VirtualJoints.ToList();
+        BoneManager.joints = joints.ToList();
+        BoneManager.virtualJoints = virtualJoints.ToList();
 
-        Bones = new[]
+        bones = new[]
         {
             // 팔 부분
-            BoneManager.NewBoneFromName("LeftHand", "LeftHand_End", false),
+            BoneManager.NewBoneFromName("LeftHand", "LeftHand_End", ScaleApplyMode.None),
             BoneManager.NewBoneFromName("LeftForeArm", "LeftHand"),
             BoneManager.NewBoneFromName("LeftArm", "LeftForeArm"),
-            BoneManager.NewBoneFromName("RightHand", "RightHand_End", false),
+            
+            BoneManager.NewBoneFromName("RightHand", "RightHand_End", ScaleApplyMode.None),
             BoneManager.NewBoneFromName("RightForeArm", "RightHand"),
             BoneManager.NewBoneFromName("RightArm", "RightForeArm"),
     
             // 다리 부분
-            BoneManager.NewBoneFromName("LeftFoot", "LeftFoot_End", false),
+            BoneManager.NewBoneFromName("LeftFoot", "LeftFoot_End", ScaleApplyMode.None),
             BoneManager.NewBoneFromName("LeftLeg", "LeftFoot"),
             BoneManager.NewBoneFromName("LeftUpLeg", "LeftLeg"),
-            BoneManager.NewBoneFromName("RightFoot", "RightFoot_End", false),
+            
+            BoneManager.NewBoneFromName("RightFoot", "RightFoot_End", ScaleApplyMode.None),
             BoneManager.NewBoneFromName("RightLeg", "RightFoot"),
             BoneManager.NewBoneFromName("RightUpLeg", "RightLeg"),
     
             // 상체 부분
-            BoneManager.NewBoneFromName("Head", "HeadCenter", false),
+            BoneManager.NewBoneFromName("Head", "HeadCenter", ScaleApplyMode.None),
             BoneManager.NewBoneFromName("Neck", "Head"),
             BoneManager.NewBoneFromName("LeftShoulder", "LeftArm"),
             BoneManager.NewBoneFromName("RightShoulder", "RightArm"),
-            BoneManager.NewBoneFromName("Hips", "Spine"),
-            BoneManager.NewBoneFromName("Spine", "Spine1"),
-            BoneManager.NewBoneFromName("Spine1", "Spine2"),
-            BoneManager.NewBoneFromName("Spine2", "Neck"),
+            BoneManager.NewBoneFromName("Hips", "Spine", ScaleApplyMode.None), // Hips 는 스케일되면 안됨 !!
+            BoneManager.NewBoneFromName("Spine", "Spine1", ScaleApplyMode.Size),
+            BoneManager.NewBoneFromName("Spine1", "Spine2", ScaleApplyMode.Size),
+            BoneManager.NewBoneFromName("Spine2", "Neck", ScaleApplyMode.Size),
         };
 
         
 
-        CalculatedVirtualPoints = new Vector3[VirtualJoints.Length];
+        calculatedVirtualPoints = new Vector3[virtualJoints.Length];
     }
 }
