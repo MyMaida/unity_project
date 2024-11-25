@@ -91,8 +91,8 @@ public class BoneMoveScript : MonoBehaviour
         {
             var boneStartName = _boneMapping.GetBoneNameByJointId(bone.startJointID);    
             
-            var firstBonePos = _boneMapping.GetPositionByJointId(coord, bone.startJointID);
-            var lastBonePos = _boneMapping.GetPositionByJointId(coord, bone.nextJointID);
+            var firstJointPos = _boneMapping.GetPositionByJointId(coord, bone.startJointID);
+            var lastJointPos = _boneMapping.GetPositionByJointId(coord, bone.nextJointID);
             
             var boneTransform = _boneReference.GetReferenceByName(boneStartName);
             
@@ -105,32 +105,59 @@ public class BoneMoveScript : MonoBehaviour
             
             boneTransform.position = _boneMapping.GetPositionByJointId(coord, bone.startJointID) + offset;
 
+            if (bone.applyDirection)
+            {
+                var hintBonePos = _boneMapping.GetPositionByJointId(coord, bone.hintJointID);
+                
+                Vector3 boneDirection = (lastJointPos - firstJointPos).normalized;
             
+                var front = Vector3.Cross(boneDirection, hintBonePos);
 
-            Debug.DrawLine(firstBonePos, lastBonePos, Color.white);
+                if (boneStartName.Contains("Left"))
+                {
+                    front = -front;
+                }
+                
+                var x = Quaternion.LookRotation(front, boneDirection);
             
-            Vector3 boneDirection = (lastBonePos - firstBonePos).normalized;
-            
-            var front = Vector3.Cross(boneDirection, Vector3.left);
-            
-            var x = Quaternion.LookRotation(front, boneDirection);
-  
-            Debug.DrawRay(firstBonePos, x * Vector3.up * 0.1f, Color.red);
-            
-            boneTransform.rotation = x;
+                boneTransform.rotation = x;
+                
+                Vector3 _boneDirection = (lastJointPos - firstJointPos).normalized;
+                            
+                var _front = Vector3.Cross(_boneDirection, Vector3.left);
+                
+                var _x = Quaternion.LookRotation(_front, boneDirection);
+                
+                Debug.DrawRay(firstJointPos, front.normalized * 0.5f, Color.red);
+                Debug.DrawRay(firstJointPos, _front.normalized * 0.5f, Color.blue);
+            }
+            else
+            {
+                Vector3 boneDirection = (lastJointPos - firstJointPos).normalized;
+                            
+                var front = Vector3.Cross(boneDirection, Vector3.left);
+                
+                var x = Quaternion.LookRotation(front, boneDirection);
+                
+                boneTransform.rotation = x;
+                
+               // Debug.DrawRay(firstJointPos, front.normalized * 0.5f, Color.cyan);
 
-
+            }
+            
+            
+            
+            
+            
             if (bone.scaleApplyMode == ScaleApplyMode.None)
             {
                 continue;
             }
             
-            var currentDistance = Vector3.Distance(firstBonePos, lastBonePos);
+            var currentDistance = Vector3.Distance(firstJointPos, lastJointPos);
 
             if (cachedData.ContainsKey(boneStartName) && cachedData[boneStartName].length > 0.0f)
             {
-                
-                
                 var scaleFactor = currentDistance / cachedData[boneStartName].length;
 
                 if (bone.scaleApplyMode == ScaleApplyMode.Length)
@@ -140,8 +167,6 @@ public class BoneMoveScript : MonoBehaviour
                 {
                     boneTransform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
                 }
-                
-                
             }
         }
     }

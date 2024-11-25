@@ -162,8 +162,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 4
-  totalIndex: 4
+  index: 1
+  totalIndex: 1
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
@@ -414,9 +414,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 3
-  totalIndex: 9
-  parentIndex: 3
+  index: 0
+  totalIndex: 6
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -1119,9 +1119,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 5
-  totalIndex: 11
-  parentIndex: 5
+  index: 2
+  totalIndex: 8
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -1183,9 +1183,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 5
-  totalIndex: 43
-  parentIndex: 9
+  index: 2
+  totalIndex: 40
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -1294,9 +1294,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 5
-  totalIndex: 33
-  parentIndex: 5
+  index: 0
+  totalIndex: 28
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -1374,9 +1374,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 4
-  totalIndex: 16
-  parentIndex: 4
+  index: 1
+  totalIndex: 13
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -1703,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &623807187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,9 +2334,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 9
-  totalIndex: 27
-  parentIndex: 5
+  index: 4
+  totalIndex: 22
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -2586,9 +2586,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 4
-  totalIndex: 10
-  parentIndex: 4
+  index: 1
+  totalIndex: 7
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -2635,9 +2635,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 7
-  totalIndex: 35
-  parentIndex: 7
+  index: 2
+  totalIndex: 30
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -3047,9 +3047,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 4
-  totalIndex: 42
-  parentIndex: 8
+  index: 1
+  totalIndex: 39
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -3142,8 +3142,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 5
-  totalIndex: 5
+  index: 2
+  totalIndex: 2
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
@@ -3206,9 +3206,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 5
-  totalIndex: 17
-  parentIndex: 5
+  index: 2
+  totalIndex: 14
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -3388,9 +3388,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 3
-  totalIndex: 47
-  parentIndex: 5
+  index: 1
+  totalIndex: 45
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -3495,7 +3495,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161570672}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5edc62cea012ba54b98c6ca073116267, type: 3}
   m_Name: 
@@ -3711,15 +3711,23 @@ MonoBehaviour:
   - name: RightUpLeg
     rawIndex: 8
   - name: LeftHand_End
-    rawIndex: 103
+    rawIndex: 101
   - name: RightHand_End
-    rawIndex: 125
+    rawIndex: 122
   - name: LeftFoot_End
-    rawIndex: 19
+    rawIndex: 18
   - name: RightFoot_End
     rawIndex: 21
   - name: HeadCenter
     rawIndex: 54
+  - name: LeftHand_Hint
+    rawIndex: 94
+  - name: RightHand_Hint
+    rawIndex: 115
+  - name: LeftFoot_Hint
+    rawIndex: 19
+  - name: RightFoot_Hint
+    rawIndex: 22
   virtualJoints:
   - name: Head
     rawIndexs: 20000000
@@ -3808,9 +3816,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 8
-  totalIndex: 36
-  parentIndex: 8
+  index: 3
+  totalIndex: 31
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -3872,8 +3880,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 3
-  totalIndex: 3
+  index: 0
+  totalIndex: 0
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
@@ -3999,9 +4007,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 6
-  totalIndex: 24
-  parentIndex: 4
+  index: 1
+  totalIndex: 19
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4063,9 +4071,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 8
-  totalIndex: 26
-  parentIndex: 5
+  index: 3
+  totalIndex: 21
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4191,9 +4199,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 2
-  totalIndex: 46
-  parentIndex: 3
+  index: 0
+  totalIndex: 44
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -4430,9 +4438,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 3
-  totalIndex: 41
-  parentIndex: 7
+  index: 0
+  totalIndex: 38
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4549,9 +4557,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 9
-  totalIndex: 37
-  parentIndex: 9
+  index: 4
+  totalIndex: 32
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4710,9 +4718,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 5
-  totalIndex: 23
-  parentIndex: 3
+  index: 0
+  totalIndex: 18
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -4948,9 +4956,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 6
-  totalIndex: 34
-  parentIndex: 6
+  index: 1
+  totalIndex: 29
+  parentIndex: 1
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone: []
@@ -5156,9 +5164,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 3
-  totalIndex: 15
-  parentIndex: 3
+  index: 0
+  totalIndex: 12
+  parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -5364,9 +5372,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 7
-  totalIndex: 25
-  parentIndex: 5
+  index: 2
+  totalIndex: 20
+  parentIndex: 2
   sorted: 0
   scalableBonesManager: {fileID: 1161570678}
   childrenScalableBone:
@@ -6327,9 +6335,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 1
-  totalIndex: 45
-  parentIndex: 2
+  index: 3
+  totalIndex: 47
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -6375,9 +6383,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 2
-  totalIndex: 20
-  parentIndex: 2
+  index: 7
+  totalIndex: 25
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -6520,8 +6528,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 0
-  totalIndex: 0
+  index: 3
+  totalIndex: 3
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
@@ -6681,9 +6689,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 1
-  totalIndex: 19
-  parentIndex: 1
+  index: 6
+  totalIndex: 24
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7093,7 +7101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4890665111002177498}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0041329637, y: -0.018273396, z: 0.99982387, w: 0.0010845469}
+  m_LocalRotation: {x: -0.0041329637, y: -0.018273419, z: 0.99982387, w: 0.0010845483}
   m_LocalPosition: {x: 0.10438116, y: -0.556635, z: -0.01382405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7123,9 +7131,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 1
-  totalIndex: 7
-  parentIndex: 1
+  index: 4
+  totalIndex: 10
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7189,9 +7197,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 2
-  totalIndex: 14
-  parentIndex: 2
+  index: 5
+  totalIndex: 17
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7238,8 +7246,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 2
-  totalIndex: 2
+  index: 5
+  totalIndex: 5
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
@@ -7352,9 +7360,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 4
-  totalIndex: 32
-  parentIndex: 4
+  index: 9
+  totalIndex: 37
+  parentIndex: 9
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7600,9 +7608,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 0
-  totalIndex: 18
-  parentIndex: 0
+  index: 5
+  totalIndex: 23
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7664,9 +7672,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 6
-  index: 0
-  totalIndex: 44
-  parentIndex: 0
+  index: 2
+  totalIndex: 46
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -7726,9 +7734,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 3
-  totalIndex: 21
-  parentIndex: 2
+  index: 8
+  totalIndex: 26
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7821,9 +7829,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 3
-  index: 4
-  totalIndex: 22
-  parentIndex: 2
+  index: 9
+  totalIndex: 27
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7870,9 +7878,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 0
-  totalIndex: 12
-  parentIndex: 0
+  index: 3
+  totalIndex: 15
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7917,9 +7925,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 0
-  totalIndex: 6
-  parentIndex: 0
+  index: 3
+  totalIndex: 9
+  parentIndex: 3
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -7996,9 +8004,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 0
-  totalIndex: 38
-  parentIndex: 2
+  index: 3
+  totalIndex: 41
+  parentIndex: 7
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8045,9 +8053,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 3
-  totalIndex: 31
-  parentIndex: 3
+  index: 8
+  totalIndex: 36
+  parentIndex: 8
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8094,9 +8102,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 0
-  totalIndex: 28
-  parentIndex: 0
+  index: 5
+  totalIndex: 33
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -8283,9 +8291,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 1
-  totalIndex: 29
-  parentIndex: 1
+  index: 6
+  totalIndex: 34
+  parentIndex: 6
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -8345,8 +8353,8 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 0
-  index: 1
-  totalIndex: 1
+  index: 4
+  totalIndex: 4
   parentIndex: 0
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
@@ -8457,9 +8465,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 2
-  index: 1
-  totalIndex: 13
-  parentIndex: 1
+  index: 4
+  totalIndex: 16
+  parentIndex: 4
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8520,9 +8528,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 1
-  totalIndex: 39
-  parentIndex: 3
+  index: 4
+  totalIndex: 42
+  parentIndex: 8
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone: []
@@ -8568,9 +8576,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 4
-  index: 2
-  totalIndex: 30
-  parentIndex: 2
+  index: 7
+  totalIndex: 35
+  parentIndex: 7
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8617,9 +8625,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 5
-  index: 2
-  totalIndex: 40
-  parentIndex: 4
+  index: 5
+  totalIndex: 43
+  parentIndex: 9
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:
@@ -8682,9 +8690,9 @@ MonoBehaviour:
   preLocalRotation: {x: 0, y: 0, z: 0, w: 0}
   initialized: 1
   depth: 1
-  index: 2
-  totalIndex: 8
-  parentIndex: 2
+  index: 5
+  totalIndex: 11
+  parentIndex: 5
   sorted: 0
   scalableBonesManager: {fileID: 2040410773}
   childrenScalableBone:

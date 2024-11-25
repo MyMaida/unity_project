@@ -1,7 +1,9 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -37,14 +39,19 @@ public struct Bone
     public int startJointID;
     public int nextJointID;
 
+    public bool applyDirection;
+    public int hintJointID; // nullable
+    
+    
     public ScaleApplyMode scaleApplyMode;
 
-    public Bone(int startJointID, int nextJointID, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length)
+    public Bone(int startJointID, int nextJointID, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length, bool applyDirection = false, int hintJointID = 0)
     {
         this.startJointID = startJointID;
         this.nextJointID = nextJointID;
         this.scaleApplyMode = scaleApplyMode;
-        
+        this.applyDirection = applyDirection;
+        this.hintJointID = hintJointID;
         
     }
 }
@@ -57,13 +64,15 @@ public static class BoneManager
     {
         var defaultID = joints.FindIndex((x) => x.name == name);
         var virtualID = (virtualJoints.FindIndex((joint) => joint.name == name) + 1) * -1;
-            
+        
         return defaultID == -1 ? virtualID : defaultID;
     }
     
-    public static Bone NewBoneFromName(string start, string end, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length)
+    public static Bone NewBoneFromName(string start, string end, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length, string hint = null)
     {
-        var bone = new Bone(GetJointIDFromName(start), GetJointIDFromName(end), scaleApplyMode);
+        
+        var bone = new Bone(GetJointIDFromName(start), GetJointIDFromName(end), scaleApplyMode, hint != null, hint == null ? 0 : GetJointIDFromName(hint)
+        );
         return bone;
     }
 }
@@ -186,13 +195,19 @@ public class BoneMapping  : MonoBehaviour
             new Joint("LeftUpLeg", 11),
             new Joint("RightUpLeg", 8),
             
-            new Joint("LeftHand_End", 103),
-            new Joint("RightHand_End", 125),
+            new Joint("LeftHand_End", 101),
+            new Joint("RightHand_End", 122),
             
-            new Joint("LeftFoot_End", 19),
+            new Joint("LeftFoot_End", 18),
             new Joint("RightFoot_End", 21),
             
             new Joint("HeadCenter", 54),
+            
+            new Joint("LeftHand_Hint", 94),
+            new Joint("RightHand_Hint", 115),
+            
+            new Joint("LeftFoot_Hint", 19),
+            new Joint("RightFoot_Hint", 22),
         };
         
         virtualJoints = new VirtualJoint[]
@@ -214,20 +229,20 @@ public class BoneMapping  : MonoBehaviour
         bones = new[]
         {
             // 팔 부분
-            BoneManager.NewBoneFromName("LeftHand", "LeftHand_End", ScaleApplyMode.None),
+            BoneManager.NewBoneFromName("LeftHand", "LeftHand_End", ScaleApplyMode.None, "LeftHand_Hint"),
             BoneManager.NewBoneFromName("LeftForeArm", "LeftHand"),
             BoneManager.NewBoneFromName("LeftArm", "LeftForeArm"),
             
-            BoneManager.NewBoneFromName("RightHand", "RightHand_End", ScaleApplyMode.None),
+            BoneManager.NewBoneFromName("RightHand", "RightHand_End", ScaleApplyMode.None, "RightHand_Hint"),
             BoneManager.NewBoneFromName("RightForeArm", "RightHand"),
             BoneManager.NewBoneFromName("RightArm", "RightForeArm"),
     
             // 다리 부분
-            BoneManager.NewBoneFromName("LeftFoot", "LeftFoot_End", ScaleApplyMode.None),
+            BoneManager.NewBoneFromName("LeftFoot", "LeftFoot_End", ScaleApplyMode.None, "LeftFoot_Hint"),
             BoneManager.NewBoneFromName("LeftLeg", "LeftFoot"),
             BoneManager.NewBoneFromName("LeftUpLeg", "LeftLeg"),
             
-            BoneManager.NewBoneFromName("RightFoot", "RightFoot_End", ScaleApplyMode.None),
+            BoneManager.NewBoneFromName("RightFoot", "RightFoot_End", ScaleApplyMode.None, "RightFoot_Hint"),
             BoneManager.NewBoneFromName("RightLeg", "RightFoot"),
             BoneManager.NewBoneFromName("RightUpLeg", "RightLeg"),
     
