@@ -84,14 +84,16 @@ public class CSVReader
     {
         get
         {
-            if (isMirrored)
-            {
-                return GetCachedCsvByKey("joints_reverse");
-            }
-            else
-            {
-                return GetCachedCsvByKey("joints");
-            }
+            // if (isMirrored)
+            // {
+            //     return GetCachedCsvByKey("joints_reverse");
+            // }
+            // else
+            // {
+            //     return GetCachedCsvByKey("joints");
+            // }
+            
+            return GetCachedCsvByKey("joints");
         }
     }
 
