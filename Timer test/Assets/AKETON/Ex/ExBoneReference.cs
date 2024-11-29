@@ -53,13 +53,19 @@ public class ExBoneReference : MonoBehaviour
             {
                 bones.Add(child);
             }
-
+            
+var ScalableBone = child.GetComponent<ScalableBone>();
             if (dontBind)
             {
-                var ScalableBone = child.GetComponent<ScalableBone>();
+                
 
                 ScalableBone.bindRotation = false;
                 ScalableBone.bindPosition = false;
+            }
+            else
+            {
+                ScalableBone.bindRotation = true;
+                ScalableBone.bindPosition = true;
             }
         }
         

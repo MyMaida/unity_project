@@ -146,7 +146,7 @@ public class BaseReceiver : MonoBehaviour
                     }
                 }
                 
-                Debug.Log(baseCoord[0]);
+                //Debug.Log(baseCoord[0]);
                 
                 var newBaseCoord = new Vector3[Helpers.CoordVectorSize];
                 
@@ -161,7 +161,7 @@ public class BaseReceiver : MonoBehaviour
                     baseCoord = newBaseCoord;
                 }
                 
-                Debug.Log("->" + baseCoord[0]);
+                //Debug.Log("->" + baseCoord[0]);
                 
                 if (mode == ReceiverMode.TransformAndScaled || mode == ReceiverMode.Scaled)
                 {
@@ -199,7 +199,7 @@ public class BaseReceiver : MonoBehaviour
                     }
                 }
                 
-                Debug.Log("->" + baseCoord[0]);
+                //Debug.Log("->" + baseCoord[0]);
 
                 OnReceive?.Invoke();
             }

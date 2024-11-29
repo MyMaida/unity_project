@@ -12,6 +12,14 @@ public class TransformData
     public Quaternion rotation;
     public Vector3 localScale;
 
+    public static TransformData identity
+    {
+        get
+        {
+            return new TransformData();
+        }
+    }
+    
     public TransformData (Vector3 newPosition, Quaternion newRotation, Vector3 newLocalScale)
     {
         position = newPosition;

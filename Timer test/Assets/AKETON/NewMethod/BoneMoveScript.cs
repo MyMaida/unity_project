@@ -20,8 +20,6 @@ public class BoneMoveScript : MonoBehaviour
     public ExBoneReference _boneReference;
     public BoneMapping _boneMapping;
     public IReceiver _receiver;
-
-    public SerializableDictionary<string, CachedData> cachedData= new SerializableDictionary<string, CachedData>();
     
     // Start is called before the first frame update
     void Start()
@@ -39,42 +37,6 @@ public class BoneMoveScript : MonoBehaviour
         _boneReference = GetComponent<ExBoneReference>();
         _boneMapping = GetComponent<BoneMapping>();
         _receiver = FindObjectOfType<IReceiver>();
-
-        var bones = _boneMapping.bones;
-        
-        cachedData.Clear();
-        
-        
-        foreach (var bone in bones) //IKRig 생성
-        {
-            var c = new CachedData();
-            
-            Debug.Log(bone + "Processing");
-
-            var startBoneName = _boneMapping.GetBoneNameByJointId(bone.startJointID);
-            var endBoneName = _boneMapping.GetBoneNameByJointId(bone.nextJointID);
-            
-            Debug.Log($"{startBoneName} and {endBoneName}");
-                
-            
-            var a = _boneReference.GetReferenceByName(
-                startBoneName 
-                );
-           
-            
-            
-            var b = _boneReference.GetReferenceByName(
-                endBoneName );
-
-            if (a == null || b == null)
-            {
-                continue;
-            }
-            
-            c.length = Vector3.Distance(a.position, b.position);
-            
-            cachedData.Add(startBoneName, c);
-        }
     }
 
     // Update is called once per frame
@@ -86,6 +48,16 @@ public class BoneMoveScript : MonoBehaviour
 
         
         _boneMapping.CalculateVirtualPoints(coord);
+
+        var middle = (coord[8] + coord[11]) / 2.0f;
+
+        var gup = (coord[135] - coord[134]).normalized;
+        
+        var gfront = Vector3.Cross(coord[8] - coord[11], gup).normalized;
+        
+        var gright = Vector3.Cross(gup, gfront).normalized;
+        
+        Debug.DrawRay(coord[11], gright, Color.red);
 
         foreach (var bone in _boneMapping.bones)
         {
@@ -105,7 +77,7 @@ public class BoneMoveScript : MonoBehaviour
             
             boneTransform.position = _boneMapping.GetPositionByJointId(coord, bone.startJointID) + offset;
 
-            if (bone.applyDirection)
+            if (bone.isApplyDirection)
             {
                 var hintBonePos = _boneMapping.GetPositionByJointId(coord, bone.hintJointID);
                 
@@ -121,23 +93,15 @@ public class BoneMoveScript : MonoBehaviour
                 var x = Quaternion.LookRotation(front, boneDirection);
             
                 boneTransform.rotation = x;
-                
-                Vector3 _boneDirection = (lastJointPos - firstJointPos).normalized;
-                            
-                var _front = Vector3.Cross(_boneDirection, Vector3.left);
-                
-                var _x = Quaternion.LookRotation(_front, boneDirection);
-                
-                Debug.DrawRay(firstJointPos, front.normalized * 0.5f, Color.red);
-                Debug.DrawRay(firstJointPos, _front.normalized * 0.5f, Color.blue);
             }
             else
             {
                 Vector3 boneDirection = (lastJointPos - firstJointPos).normalized;
                             
-                var front = Vector3.Cross(boneDirection, Vector3.left);
+                var front = Vector3.Cross(boneDirection, -gright);
                 
                 var x = Quaternion.LookRotation(front, boneDirection);
+                
                 
                 boneTransform.rotation = x;
                 
@@ -156,9 +120,9 @@ public class BoneMoveScript : MonoBehaviour
             
             var currentDistance = Vector3.Distance(firstJointPos, lastJointPos);
 
-            if (cachedData.ContainsKey(boneStartName) && cachedData[boneStartName].length > 0.0f)
+            if (bone.scaleApplyMode != ScaleApplyMode.None && bone.originalLength > 0.0f)
             {
-                var scaleFactor = currentDistance / cachedData[boneStartName].length;
+                var scaleFactor = currentDistance / bone.originalLength;
 
                 if (bone.scaleApplyMode == ScaleApplyMode.Length)
                 {

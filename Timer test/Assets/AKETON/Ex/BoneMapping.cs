@@ -3,9 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Vector3 = UnityEngine.Vector3;
 
 
 [System.Serializable]
@@ -39,28 +41,29 @@ public struct Bone
     public int startJointID;
     public int nextJointID;
 
-    public bool applyDirection;
+    public bool isApplyDirection;
     public int hintJointID; // nullable
     
+    public float originalLength;
+    public float originalSpin;
     
     public ScaleApplyMode scaleApplyMode;
-
-    public Bone(int startJointID, int nextJointID, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length, bool applyDirection = false, int hintJointID = 0)
-    {
-        this.startJointID = startJointID;
-        this.nextJointID = nextJointID;
-        this.scaleApplyMode = scaleApplyMode;
-        this.applyDirection = applyDirection;
-        this.hintJointID = hintJointID;
-        
-    }
 }
 
-public static class BoneManager
+public class BoneBuilder
 {
-    public static List<Joint> joints;
-    public static List<VirtualJoint> virtualJoints;
-    public static int GetJointIDFromName(string name)
+    public List<Joint> joints;
+    public List<VirtualJoint> virtualJoints;
+    public ExBoneReference exBoneReference;
+
+    public BoneBuilder(List<Joint> joints, List<VirtualJoint> virtualJoints, ExBoneReference exBoneReference  )
+    {
+        this.joints = joints;
+        this.virtualJoints = virtualJoints;
+        this.exBoneReference = exBoneReference;
+    }
+    
+    public int GetJointIDFromName(string name)
     {
         var defaultID = joints.FindIndex((x) => x.name == name);
         var virtualID = (virtualJoints.FindIndex((joint) => joint.name == name) + 1) * -1;
@@ -68,11 +71,45 @@ public static class BoneManager
         return defaultID == -1 ? virtualID : defaultID;
     }
     
-    public static Bone NewBoneFromName(string start, string end, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length, string hint = null)
+    public Bone NewBoneFromName(string start, string end, ScaleApplyMode scaleApplyMode = ScaleApplyMode.Length, string hint = null)
     {
+        if (joints == null || virtualJoints == null || exBoneReference == null)
+        {
+            Debug.LogError("null");
+        }
         
-        var bone = new Bone(GetJointIDFromName(start), GetJointIDFromName(end), scaleApplyMode, hint != null, hint == null ? 0 : GetJointIDFromName(hint)
+
+        var bone = new Bone();
+        bone.startJointID = GetJointIDFromName(start);
+        bone.nextJointID = GetJointIDFromName(end);
+        bone.scaleApplyMode = scaleApplyMode;
+        bone.isApplyDirection = hint != null;
+        bone.hintJointID = hint == null ? 0 : GetJointIDFromName(hint);
+        
+        var a =exBoneReference.GetReferenceByName(
+            start
         );
+        
+        var b = exBoneReference.GetReferenceByName(
+            end );
+        
+        if (a == null || b == null)
+        {
+            Debug.Log("bone length null " + start + end);
+            
+        }
+        else
+        {
+            bone.originalLength = Vector3.Distance(a.position, b.position);
+            bone.originalSpin = Vector3.Angle(a.right, Vector3.right);
+            
+            
+            Debug.Log(start + end + "rot is" + bone.originalSpin );
+        }
+        
+        
+
+        
         return bone;
     }
 }
@@ -80,7 +117,7 @@ public static class BoneManager
 public struct Joint
 {
     public string name;
-     public int rawIndex;
+    public int rawIndex;
 
     public Joint(string name, int rawIndex)
     {
@@ -218,43 +255,43 @@ public class BoneMapping  : MonoBehaviour
             new VirtualJoint("RightShoulder",new[] {1, 2}, new[] {0.5f, 0.5f}), // -4
             new VirtualJoint("Hips",new[] {8, 11}, new[] {0.5f, 0.5f}), // -5
             
-            new VirtualJoint("Spine",new[] {1, -5}, new[] {0.3f, 0.7f}), // -6
+            new VirtualJoint("Spine",new[] {1, -5}, new[] {0.4f, 0.6f}), // -6
             new VirtualJoint("Spine1",new[] {1, -5}, new[] {0.6f, 0.4f}), // -7
             new VirtualJoint("Spine2",new[] {1, -5}, new[] {0.8f, 0.2f}), // -8
         };
 
-        BoneManager.joints = joints.ToList();
-        BoneManager.virtualJoints = virtualJoints.ToList();
+        BoneBuilder boneBuilder = new BoneBuilder(joints.ToList(), virtualJoints.ToList(), GetComponent<ExBoneReference>());
+        
 
         bones = new[]
         {
             // 팔 부분
-            BoneManager.NewBoneFromName("LeftHand", "LeftHand_End", ScaleApplyMode.None, "LeftHand_Hint"),
-            BoneManager.NewBoneFromName("LeftForeArm", "LeftHand"),
-            BoneManager.NewBoneFromName("LeftArm", "LeftForeArm"),
+            boneBuilder.NewBoneFromName("LeftHand", "LeftHand_End", ScaleApplyMode.None, "LeftHand_Hint"),
+            boneBuilder.NewBoneFromName("LeftForeArm", "LeftHand"),
+            boneBuilder.NewBoneFromName("LeftArm", "LeftForeArm"),
             
-            BoneManager.NewBoneFromName("RightHand", "RightHand_End", ScaleApplyMode.None, "RightHand_Hint"),
-            BoneManager.NewBoneFromName("RightForeArm", "RightHand"),
-            BoneManager.NewBoneFromName("RightArm", "RightForeArm"),
+            boneBuilder.NewBoneFromName("RightHand", "RightHand_End", ScaleApplyMode.None, "RightHand_Hint"),
+            boneBuilder.NewBoneFromName("RightForeArm", "RightHand"),
+            boneBuilder.NewBoneFromName("RightArm", "RightForeArm"),
     
             // 다리 부분
-            BoneManager.NewBoneFromName("LeftFoot", "LeftFoot_End", ScaleApplyMode.None, "LeftFoot_Hint"),
-            BoneManager.NewBoneFromName("LeftLeg", "LeftFoot"),
-            BoneManager.NewBoneFromName("LeftUpLeg", "LeftLeg"),
+            boneBuilder.NewBoneFromName("LeftFoot", "LeftFoot_End", ScaleApplyMode.None, "LeftFoot_Hint"),
+            boneBuilder.NewBoneFromName("LeftLeg", "LeftFoot"),
+            boneBuilder.NewBoneFromName("LeftUpLeg", "LeftLeg"),
             
-            BoneManager.NewBoneFromName("RightFoot", "RightFoot_End", ScaleApplyMode.None, "RightFoot_Hint"),
-            BoneManager.NewBoneFromName("RightLeg", "RightFoot"),
-            BoneManager.NewBoneFromName("RightUpLeg", "RightLeg"),
+            boneBuilder.NewBoneFromName("RightFoot", "RightFoot_End", ScaleApplyMode.None, "RightFoot_Hint"),
+            boneBuilder.NewBoneFromName("RightLeg", "RightFoot"),
+            boneBuilder.NewBoneFromName("RightUpLeg", "RightLeg"),
     
             // 상체 부분
-            BoneManager.NewBoneFromName("Head", "HeadCenter", ScaleApplyMode.None),
-            BoneManager.NewBoneFromName("Neck", "Head"),
-            BoneManager.NewBoneFromName("LeftShoulder", "LeftArm"),
-            BoneManager.NewBoneFromName("RightShoulder", "RightArm"),
-            BoneManager.NewBoneFromName("Hips", "Spine", ScaleApplyMode.None), // Hips 는 스케일되면 안됨 !!
-            BoneManager.NewBoneFromName("Spine", "Spine1", ScaleApplyMode.Size),
-            BoneManager.NewBoneFromName("Spine1", "Spine2", ScaleApplyMode.Size),
-            BoneManager.NewBoneFromName("Spine2", "Neck", ScaleApplyMode.Size),
+            boneBuilder.NewBoneFromName("Head", "HeadCenter", ScaleApplyMode.None),
+            boneBuilder.NewBoneFromName("Neck", "Head"),
+            boneBuilder.NewBoneFromName("LeftShoulder", "LeftArm"),
+            boneBuilder.NewBoneFromName("RightShoulder", "RightArm"),
+            boneBuilder.NewBoneFromName("Hips", "Spine", ScaleApplyMode.None), // Hips 는 스케일되면 안됨 !!
+            boneBuilder.NewBoneFromName("Spine", "Spine1", ScaleApplyMode.Size),
+            boneBuilder.NewBoneFromName("Spine1", "Spine2", ScaleApplyMode.Size),
+            boneBuilder.NewBoneFromName("Spine2", "Neck", ScaleApplyMode.Size),
         };
 
         
