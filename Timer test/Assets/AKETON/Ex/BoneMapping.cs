@@ -7,6 +7,7 @@ using System.Numerics;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 
@@ -45,7 +46,9 @@ public struct Bone
     public int hintJointID; // nullable
     
     public float originalLength;
-    public float originalSpin;
+    
+    public Vector3 originalPosition;
+    public Quaternion originalRotation;
     
     public ScaleApplyMode scaleApplyMode;
 }
@@ -101,10 +104,10 @@ public class BoneBuilder
         else
         {
             bone.originalLength = Vector3.Distance(a.position, b.position);
-            bone.originalSpin = Vector3.Angle(a.right, Vector3.right);
             
+            bone.originalPosition = a.position;
+            bone.originalRotation = a.rotation;
             
-            Debug.Log(start + end + "rot is" + bone.originalSpin );
         }
         
         

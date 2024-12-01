@@ -2215,6 +2215,7 @@ MonoBehaviour:
   isFloorTransformSet: 0
   useVerticalVector: 0
   receivedScale: 21.7
+  paused: 0
 --- !u!4 &758941256
 Transform:
   m_ObjectHideFlags: 0
@@ -3544,6 +3545,7 @@ MonoBehaviour:
   _boneReference: {fileID: 1161570685}
   _boneMapping: {fileID: 1161570686}
   _receiver: {fileID: 758941258}
+  debugRotate: 0
 --- !u!114 &1161570685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3597,140 +3599,160 @@ MonoBehaviour:
     isApplyDirection: 0
     hintJointID: 17
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 1
     nextJointID: 0
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: 8
     nextJointID: 1
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: 2
     nextJointID: 13
     isApplyDirection: 0
     hintJointID: 18
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 3
     nextJointID: 2
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: 9
     nextJointID: 3
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: 4
     nextJointID: 14
     isApplyDirection: 0
     hintJointID: 19
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 5
     nextJointID: 4
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: 10
     nextJointID: 5
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: 6
     nextJointID: 15
     isApplyDirection: 0
     hintJointID: 20
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 7
     nextJointID: 6
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: 11
     nextJointID: 7
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: -1
     nextJointID: 16
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: -2
     nextJointID: -1
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: -3
     nextJointID: 8
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: -4
     nextJointID: 9
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 1
   - startJointID: -5
     nextJointID: -6
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: -6
     nextJointID: -7
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 2
   - startJointID: -7
     nextJointID: -8
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 2
   - startJointID: -8
     nextJointID: -2
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 2
   joints:
   - name: LeftHand
@@ -6377,8 +6399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 8932621592324492654}
   parent: {fileID: 2563496967871022906}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0.0000000014721087, y: 0.29048294, z: -0.000000004998766}
@@ -6425,8 +6447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 5680486695258606672}
   parent: {fileID: 366175169715266301}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0.07175593, y: 0.13383116, z: -0.0022438415}
@@ -6469,7 +6491,7 @@ Transform:
   m_GameObject: {fileID: 3661821582957728261}
   serializedVersion: 2
   m_LocalRotation: {x: 0.043078896, y: 0.6878759, z: 0.7197251, w: -0.083467245}
-  m_LocalPosition: {x: 0.13596095, y: -1.0833056, z: 0.11645175}
+  m_LocalPosition: {x: 0.13596095, y: -1.0833055, z: 0.11645175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6570,8 +6592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 0}
   parent: {fileID: 5465940246378919405}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0.10353616, y: -0.060808063, z: -0.0009304974}
@@ -6855,7 +6877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7519898547048102611}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.04454132, y: 0.68796325, z: 0.7196736, w: 0.082417816}
+  m_LocalRotation: {x: -0.04454131, y: 0.68796325, z: 0.7196736, w: 0.082417816}
   m_LocalPosition: {x: -0.1488024, y: -1.0862101, z: 0.18779176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7152,7 +7174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4890665111002177498}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0041329637, y: -0.01827352, z: 0.99982387, w: 0.0010845546}
+  m_LocalRotation: {x: -0.0041329637, y: -0.01827353, z: 0.99982387, w: 0.0010845553}
   m_LocalPosition: {x: 0.10438116, y: -0.556635, z: -0.01382405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7173,8 +7195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 8169382870134981331}
   parent: {fileID: 8169382870134981330}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0.000000001969251, y: 0.49598202, z: -4.3933068e-10}
@@ -7239,8 +7261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 9019515342504386198}
   parent: {fileID: 1202371031151071894}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0, y: 0.14632398, z: -2.2471458e-10}
@@ -7288,8 +7310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 0}
   parent: {fileID: 5465940246378919405}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0, y: 0.109396696, z: -0.008712707}
@@ -7373,6 +7395,7 @@ MonoBehaviour:
   _boneReference: {fileID: 5866666019872739078}
   _boneMapping: {fileID: 5866666019872739077}
   _receiver: {fileID: 758941258}
+  debugRotate: 0
 --- !u!114 &5866666019872739077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7391,140 +7414,160 @@ MonoBehaviour:
     isApplyDirection: 1
     hintJointID: 17
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 1
     nextJointID: 0
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.2903129
-    originalSpin: 89.99987
+    originalPosition: {x: 1.8695228, y: 1.5708303, z: -0.82585704}
+    originalRotation: {x: 0.49159968, y: -0.4915981, z: 0.508262, w: 0.50826263}
     scaleApplyMode: 1
   - startJointID: 8
     nextJointID: 1
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.26552582
-    originalSpin: 89.99993
+    originalPosition: {x: 2.1350486, y: 1.5708306, z: -0.8258574}
+    originalRotation: {x: 0.4910473, y: -0.49104622, z: 0.5087956, w: 0.50879586}
     scaleApplyMode: 1
   - startJointID: 2
     nextJointID: 13
     isApplyDirection: 1
     hintJointID: 18
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 3
     nextJointID: 2
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.290483
-    originalSpin: 89.999886
+    originalPosition: {x: 2.8509328, y: 1.5707672, z: -0.8270999}
+    originalRotation: {x: -0.48766068, y: -0.4876555, z: 0.51204604, w: -0.51204306}
     scaleApplyMode: 1
   - startJointID: 9
     nextJointID: 3
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.2655599
-    originalSpin: 89.99994
+    originalPosition: {x: 2.585373, y: 1.5707695, z: -0.8271004}
+    originalRotation: {x: -0.48702982, y: -0.4870247, z: 0.51264644, w: -0.5126428}
     scaleApplyMode: 1
   - startJointID: 4
     nextJointID: 14
     isApplyDirection: 1
     hintJointID: 19
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 5
     nextJointID: 4
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.42731225
-    originalSpin: 179.50902
+    originalPosition: {x: 2.2558293, y: 0.52969843, z: -0.79859364}
+    originalRotation: {x: 0.004151919, y: -0.016192622, z: 0.99985975, w: -0.0010663435}
     scaleApplyMode: 1
   - startJointID: 10
     nextJointID: 5
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.4960021
-    originalSpin: 179.50624
+    originalPosition: {x: 2.256684, y: 1.0254805, z: -0.78384614}
+    originalRotation: {x: 0.0042384714, y: -0.01487154, z: 0.99988014, w: 0.0007986608}
     scaleApplyMode: 1
   - startJointID: 6
     nextJointID: 15
     isApplyDirection: 1
     hintJointID: 20
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: 7
     nextJointID: 6
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.42725778
-    originalSpin: 179.5106
+    originalPosition: {x: 2.4646103, y: 0.52965736, z: -0.7967396}
+    originalRotation: {x: -0.0041330755, y: -0.018273594, z: 0.99982387, w: 0.0010754915}
     scaleApplyMode: 1
   - startJointID: 11
     nextJointID: 7
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.49598202
-    originalSpin: 179.50822
+    originalPosition: {x: 2.4637563, y: 1.0254843, z: -0.7843674}
+    originalRotation: {x: -0.004214771, y: -0.0124769, z: 0.999913, w: -0.00080844085}
     scaleApplyMode: 1
   - startJointID: -1
     nextJointID: 16
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0
-    originalSpin: 0
+    originalPosition: {x: 0, y: 0, z: 0}
+    originalRotation: {x: 0, y: 0, z: 0, w: 0}
     scaleApplyMode: 0
   - startJointID: -2
     nextJointID: -1
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.11436734
-    originalSpin: 0
+    originalPosition: {x: 2.360217, y: 1.6332736, z: -0.826479}
+    originalRotation: {x: 0.000000040978193, y: -1.762146e-12, z: -9.022071e-13, w: 1}
     scaleApplyMode: 1
   - startJointID: -3
     nextJointID: 8
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.1566295
-    originalSpin: 90.83694
+    originalPosition: {x: 2.2884612, y: 1.6024092, z: -0.82627183}
+    originalRotation: {x: 0.52482164, y: -0.42653748, z: 0.5704114, w: 0.46611053}
     scaleApplyMode: 1
   - startJointID: -4
     nextJointID: 9
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.15662944
-    originalSpin: 91.16072
+    originalPosition: {x: 2.431973, y: 1.6024092, z: -0.8266862}
+    originalRotation: {x: -0.5230294, y: -0.42741835, z: 0.5722255, w: -0.4650934}
     scaleApplyMode: 1
   - startJointID: -5
     nextJointID: -6
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.1097431
-    originalSpin: 0
+    originalPosition: {x: 2.360219, y: 1.0862905, z: -0.78291553}
+    originalRotation: {x: 0.000000026261924, y: -0.0000002774997, z: 0.000009060365, w: 1}
     scaleApplyMode: 0
   - startJointID: -6
     nextJointID: -7
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.12803353
-    originalSpin: 0
+    originalPosition: {x: 2.360217, y: 1.1956872, z: -0.79162824}
+    originalRotation: {x: -0.039727293, y: -1.762146e-12, z: -8.9276e-13, w: 0.9992106}
     scaleApplyMode: 2
   - startJointID: -7
     nextJointID: -8
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.14632398
-    originalSpin: 0
+    originalPosition: {x: 2.360217, y: 1.3233166, z: -0.80179304}
+    originalRotation: {x: -0.039727293, y: -1.8189894e-12, z: 1.6734693e-14, w: 0.9992106}
     scaleApplyMode: 2
   - startJointID: -8
     nextJointID: -2
     isApplyDirection: 0
     hintJointID: 0
     originalLength: 0.16461453
-    originalSpin: 0
+    originalPosition: {x: 2.360217, y: 1.4691787, z: -0.81341}
+    originalRotation: {x: -0.039727293, y: -1.8189894e-12, z: 1.6734693e-14, w: 0.9992106}
     scaleApplyMode: 2
   joints:
   - name: LeftHand
@@ -7651,7 +7694,7 @@ MonoBehaviour:
   - {fileID: 2563496967871022906}
   - {fileID: 1852576806137613658}
   - {fileID: 5465940246378919405}
-  dontBind: 0
+  dontBind: 1
 --- !u!114 &5866666019872739079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7737,8 +7780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 7078722786508475152}
   parent: {fileID: 7078722786508475151}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: 7.3629186e-11, y: 0.15662949, z: 7.380496e-10}
@@ -7964,7 +8007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339101016211932543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.04454133, y: 0.6879631, z: 0.71967363, w: 0.0824178}
+  m_LocalRotation: {x: -0.044541325, y: 0.6879631, z: 0.71967363, w: 0.0824178}
   m_LocalPosition: {x: -0.13599907, y: -1.0833758, z: 0.11784587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8049,8 +8092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 7410462539260890220}
   parent: {fileID: 7410462539260890219}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: 0.0000000032954246, y: 0.2903129, z: 0.000000003390424}
@@ -8111,8 +8154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 5680486695258606672}
   parent: {fileID: 366175169715266301}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0, y: 0.16461453, z: 0.0000000120224355}
@@ -8206,8 +8249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 5680486695258606672}
   parent: {fileID: 366175169715266301}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: 0.07175593, y: 0.13386405, z: -0.0026568994}
@@ -8255,8 +8298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 7151331952335688784}
   parent: {fileID: 7151331952335688783}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0.0000000023309683, y: 0.4273122, z: 0.0000000014429282}
@@ -8302,8 +8345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 3135921507844110528}
   parent: {fileID: 2559285842096557201}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0.0000000015402197, y: 0.49600208, z: -2.0463796e-10}
@@ -8381,8 +8424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 8817898887561266962}
   parent: {fileID: 5790970486279856554}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: 4.630361e-10, y: 0.26552582, z: -4.522438e-10}
@@ -8430,8 +8473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 6515712192356478593}
   parent: {fileID: 6515712192356478592}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0, y: 0.10700953, z: 0.040359035}
@@ -8730,8 +8773,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 0}
   parent: {fileID: 5465940246378919405}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: 0.10353616, y: -0.060808063, z: -0.001451904}
@@ -8842,8 +8885,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 5477181765954583625}
   parent: {fileID: 5477181765954583624}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -4.4387613e-10, y: 0.4272578, z: 0.0000000012633848}
@@ -8905,8 +8948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 7442015437410365943}
   parent: {fileID: 5901452233759148026}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0, y: 0.21124494, z: 0.07967177}
@@ -8953,8 +8996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 2853286957062303904}
   parent: {fileID: 2420202489982202470}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -5.1742444e-11, y: 0.15662949, z: 7.3994455e-10}
@@ -9002,8 +9045,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 6000407480451984792}
   parent: {fileID: 6000407480451984791}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: 1.2409879e-11, y: 0.26555988, z: -0.0000000017252273}
@@ -9067,8 +9110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentScalableBone: {fileID: 5742672706921776767}
   parent: {fileID: 5742672706921776766}
-  bindPosition: 1
-  bindRotation: 1
+  bindPosition: 0
+  bindRotation: 0
   positionOffset: {x: 0, y: 0, z: 0}
   visible: 1
   originalLocalPosition: {x: -0, y: 0.12803353, z: -1.4777944e-10}

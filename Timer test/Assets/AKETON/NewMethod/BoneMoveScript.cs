@@ -20,6 +20,8 @@ public class BoneMoveScript : MonoBehaviour
     public ExBoneReference _boneReference;
     public BoneMapping _boneMapping;
     public IReceiver _receiver;
+
+    public float debugRotate;
     
     // Start is called before the first frame update
     void Start()
@@ -96,14 +98,46 @@ public class BoneMoveScript : MonoBehaviour
             }
             else
             {
+                Quaternion OmniLookRotation(
+                    Vector3 exactAxis,       Vector3 exactTarget,
+                    Vector3 approximateAxis, Vector3 approximateTarget
+                ) {
+                    // Compute a rotation that takes the z+ and y+ axes to our custom axes.
+                    var zyToCustom = Quaternion.LookRotation(exactAxis, approximateAxis);
+                    // Invert this, to map our custom axes to z+ and y+.
+                    var customToZY = Quaternion.Inverse(zyToCustom);
+
+                    // Compute a rotation that takes the z+ and y+ axes to our target directions.
+                    var zyToTarget = Quaternion.LookRotation(exactTarget, approximateTarget);
+    
+                    // Chain these two rotations so that exactAxis maps to exactTarget,
+                    // and approximateAxis maps as closely as it can to approximateTarget.
+                    var customToTarget = zyToTarget * customToZY;
+
+                    return customToTarget;
+                }
+                
                 Vector3 boneDirection = (lastJointPos - firstJointPos).normalized;
+
+
+                var localRight = bone.originalRotation * Vector3.right;
+                
+                Debug.DrawRay(boneTransform.position, localRight, Color.red);
                             
-                var front = Vector3.Cross(boneDirection, -gright);
+                var up = Vector3.Cross(boneDirection, localRight);
+
+
+                var viewrot = OmniLookRotation(Vector3.up, boneDirection,
+                                                        Vector3.right, localRight);
                 
-                var x = Quaternion.LookRotation(front, boneDirection);
+                var viewEuler= viewrot.eulerAngles;
                 
-                
-                boneTransform.rotation = x;
+
+                var angleDiff = bone.originalRotation.y;
+
+                var test = Quaternion.Euler(Vector3.up * angleDiff);
+
+                boneTransform.rotation = viewrot;// * Quaternion.Euler(Vector3.up * angleDiff);
                 
                // Debug.DrawRay(firstJointPos, front.normalized * 0.5f, Color.cyan);
 

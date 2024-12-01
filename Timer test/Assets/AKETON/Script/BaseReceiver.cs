@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Unity.Collections;
 using UnityEngine;
@@ -45,6 +46,8 @@ public class BaseReceiver : MonoBehaviour
     public float receivedScale = 20.0f;
     
     private bool isFinished;
+    
+    public bool paused = false;
     
     void Awake()
     {
@@ -115,6 +118,13 @@ public class BaseReceiver : MonoBehaviour
             //using var udpClient = new UdpClient("localhost", m_Port);
             while (!isFinished)
             {
+                if (paused)
+                {
+                    await Task.Delay(10);
+                    continue;
+                }
+                
+                
                 var receivedResult = await udpClient.ReceiveAsync();
 
                 
