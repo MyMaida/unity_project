@@ -4,7 +4,8 @@ import sys
 
 # usage : 1/boxing or default or prev/t1
 
-SERVER_ADDRESS = ('127.0.0.1',12345)
+# SERVER_ADDRESS = ('127.0.0.1',12345)
+SERVER_ADDRESS = ('192.168.0.213',12345)
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # 텍스트 파일에서 리스트 불러오기

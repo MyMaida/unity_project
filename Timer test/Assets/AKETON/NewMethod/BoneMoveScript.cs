@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using OnlyNew.BodyProportions;
-using UnityEditor.ShaderGraph.Drawing;
+
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+#if UNITY_EDITOR
+using UnityEditor.ShaderGraph.Drawing;
+#endif
 
 [Serializable]
 public class CachedData
