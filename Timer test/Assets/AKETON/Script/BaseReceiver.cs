@@ -45,10 +45,10 @@ public class BaseReceiver : MonoBehaviour
     
     public float receivedScale = 20.0f;
     
-    private bool isFinished;
-    
-    public bool paused = false;
-    
+    private bool _isFinished;
+
+    public bool paused { get; set; } = false;
+
     void Awake()
     {
         baseCoord = new Vector3[Helpers.CoordVectorSize];
@@ -58,7 +58,7 @@ public class BaseReceiver : MonoBehaviour
     private void OnApplicationQuit()
     {
         Debug.Log("Application Quit");
-        isFinished = true;
+        _isFinished = true;
         baseCoord = new Vector3[Helpers.CoordVectorSize];
         
         OnEndReceive?.Invoke();
@@ -110,13 +110,13 @@ public class BaseReceiver : MonoBehaviour
     async void Receive()
     {
         
-        isFinished = false;
+        _isFinished = false;
         
         try
         {
             using var udpClient = new UdpClient(m_Port);
             //using var udpClient = new UdpClient("localhost", m_Port);
-            while (!isFinished)
+            while (!_isFinished)
             {
                 if (paused)
                 {
