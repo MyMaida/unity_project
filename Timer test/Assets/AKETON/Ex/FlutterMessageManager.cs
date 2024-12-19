@@ -7,12 +7,12 @@ using UnityEngine;
 // flutter -> export ios debug
 public class FlutterMessageManager : MonoBehaviour
 {
-    UnityMessageManager manager;
+    public UnityMessageManager manager;
     public BaseReceiver receiver;
     // Start is called before the first frame update
     void Start()
     {
-        manager = gameObject.AddComponent<UnityMessageManager>();
+        manager = gameObject.GetComponent<UnityMessageManager>();
         manager.OnMessage += OnUnityMessage;
     }
 
