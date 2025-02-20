@@ -47,7 +47,7 @@ public class BaseReceiver : MonoBehaviour
     
     private bool _isFinished;
 
-    public bool paused { get; set; } = false;
+    public bool paused = false;
 
     void Awake()
     {
@@ -107,7 +107,7 @@ public class BaseReceiver : MonoBehaviour
         return baseCoord;
     }
 
-    async void Receive()
+    async Task Receive()
     {
         
         _isFinished = false;
